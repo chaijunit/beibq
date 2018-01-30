@@ -1,0 +1,145 @@
+@import '../base.scss';
+@import '_common.scss';
+@import '../base/uploadfile.scss';
+@import '../_book.scss';
+
+.book-panel{
+    .title{
+        margin: 0 0 20px;
+        font-size: 16px;
+    }
+}
+
+.tab-group{
+    border-bottom: $normal-border;
+    margin-bottom: 10px;
+    .tab-item{
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 15px;
+        color: #666;
+        font-weight: bold;
+        &:hover, &:focus, &:active{
+            color: #666;
+            text-decoration: none;
+        }
+        &.active{
+            color: $themecolor;
+            border-bottom: 2px solid $themecolor;
+            margin-bottom: -2px;
+            &:hover, &:focus, &:active{
+                color: $themecolor;
+            }
+        }
+        .count{
+            color: $new-book;
+        }
+    }
+}
+
+
+.book-access{
+    font-size: 15px;
+}
+
+.access-radio{
+    width: 15px;
+    height: 15px;
+}
+
+.access-icon{
+    font-size: 20px;
+    &.warn{
+        color: $redcolor;
+    }
+}
+
+/* 书籍设置 */
+
+.book-form{
+    width: 700px;
+    margin: 0 auto;
+}
+
+.cover-thumbnail{
+    height: 150px;
+    width: 112.5px;
+    padding: 0;
+    cursor: pointer;
+    color: $bookcover_iconcolor;
+    //background-color: $bookcover_backgroundcolor;
+    background: url(/static/img/cover.jpg) center center/100% auto;
+    text-align: center;
+    .fa-book{
+        margin-top: 40px;
+        font-size: 65px;
+    }
+}
+
+.thumbnail{
+    margin-bottom:0;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.cover-modal{
+    .modal-dialog{
+        width: 450px;
+    }
+}
+
+.cover-preview{
+    height: 240px;
+    width: 180px;
+    background-color: $gray-whiter;
+    border: 1px solid $gray-white;
+    margin: 30px auto;
+}
+
+// 在线图片编辑模态对话框
+.cropit-preview-image-container{
+    cursor: move;
+}
+.cropit-preview-background{
+    opacity: .2;
+    cursor: auto;
+}
+
+.image-zoom-input{
+    appearance: none;
+    height: 5px;
+    background-color: #eee;
+    outline: none;
+    border-radius: 5px;
+    width: 258px !important;
+    margin: 0 auto;
+    &[disabled]{
+        cursor: no-drop;
+    }
+}
+
+.image-setting-menu{
+    position: relative;
+    margin: 20px auto;
+    width: 300px;
+    .left-icon{
+        position: absolute;
+        top: -4px;
+        left: 3px;
+        color: #d3d3d3;
+        font-weight: bold;
+    }
+    
+    .right-icon{
+        position: absolute;
+        top: -7px;
+        right: 0;
+        color: #d3d3d3;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+

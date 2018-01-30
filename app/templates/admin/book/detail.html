@@ -1,0 +1,176 @@
+{%extends "admin/base.html"%}
+{%block title%}
+书籍- {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/book.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/book.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+{%include "admin/_sidebar.html"%}
+
+<div class="main">
+    <div class="main-wraper">
+        {%include "admin/_head.html"%}
+    <div class="main-content">
+        <div class="book-form">
+            <ol class="breadcrumb">
+                <li><a href="{{url_for("admin.index")}}">书籍</a></li>
+                <li class="active">设置："{{book.name}}"</li>
+            </ol> 
+ 
+        <div class="panel">
+            <div class="panel-body book-panel">
+                {%for msg in get_flashed_messages()%}
+                {%if loop.first%}
+                <div class="alert {%if error%}alert-danger{%else%}alert-success{%endif%} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{msg.decode("utf-8")}}
+                    </div>
+                {%endif%}
+                {%endfor%}
+ 
+                <h3 class="title ">封面设置</h3>
+                <div class="form-group ">
+                    <div class="row">
+                    <label class="col-sm-2 control-label">封面</label>
+                    <div class="col-sm-10">
+                        <div id="cover" class="thumbnail cover-thumbnail fileinput-button">
+                            {%if book.cover%}
+                            <img src="{{url_for("static", filename = book.origin_cover())}}" alt="{{book.name}}">
+                            {%endif%}
+                            <input id="cover-input" type="file">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <h3 class="title ">信息设置</h3>
+                <form method="post" role="form">
+                    {{form.hidden_tag()}}
+                    <div class="form-group ">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="name">书名</label>
+                        <div class="col-sm-10">
+                            <input class="form-control {%if form.name.errors%}input-error{%endif%}" type="text" name="name" value="{%if form.name.data%}{{form.name.data}}{%else%}{{book.name}}{%endif%}">
+                            {%for error in form.name.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="brief">描述</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control {%if form.brief.errors%}input-error{%endif%}"  name="brief" cols="5" rows="5">{%if form.brief.data%}{{form.brief.data}}{%else%}{{book.brief}}{%endif%}</textarea>
+                            {%for error in form.brief.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="access">权限</label>
+                        <div class="col-sm-10">
+                            <label class="col-sm-6 radio-inline">
+                                <input type="radio" name="access" value="{{form.access.choices[0][0]}}" {%if form.access.data=="1"%}checked{%elif form.access.data=="None" and book.access==1%}checked{%endif%}>
+                                <i class="fa fa-columns access-icon"></i>
+                                公开
+                                <span class="gray-white">(任何人都能看到)</span>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="access" value="{{form.access.choices[1][0]}}" {%if form.access.data=="0"%}checked{%elif form.access.data=="None" and book.access==0%}checked{%endif%}>
+                                <i class="fa fa-lock access-icon warn"></i>
+                                私人
+                                <span class="gray-white">(仅自己能看到)</span>
+                            </label>
+                            {%for error in form.access.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="setting-book-btn">
+                                <button class="btn btn-default" type="submit">保存修改</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+ 
+                </form>
+                
+
+            </div>
+        </div>
+        </div>
+    </div>
+    {%include "_footer.html"%}
+
+    </div>
+
+</div>
+
+<div id="cover-modal" class="modal cover-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">修改图片</h4>
+            </div>
+            <div class="modal-body">
+                <div id="cover-preview">
+                    <div class="cover-preview">
+                    </div>
+                </div>
+                <div class="image-setting-menu">
+                <span class="fa fa-square-o left-icon"></span>
+                <span class="fa fa-square-o right-icon"></span>
+                <input id="cover-zoom-input" type="range" class="image-zoom-input">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary ok">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
+
+{%block scripts%}
+<script>
+    window.BOOK = {{book.id}};
+</script>
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+<script src="{{url_for("static", filename="asserts/cropit/dist/jquery.cropit.js")}}"></script>
+<script src="{{url_for("static", filename="js/admin/book.js")}}"></script>
+{%else%}
+<script src="{{url_for("static", filename="dist/js/book.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

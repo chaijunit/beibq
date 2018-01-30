@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cropit</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../dist/jquery.cropit.js"></script>
+
+    <style>
+      .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 5px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
+
+      .cropit-preview-image-container {
+        cursor: move;
+      }
+
+      .cropit-preview-background {
+        opacity: .2;
+        cursor: auto;
+      }
+
+      .image-size-label {
+        margin-top: 10px;
+      }
+
+      input, .export {
+        /* Use relative position to prevent from being covered by image background */
+        position: relative;
+        z-index: 10;
+        display: block;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-editor">
+      <input type="file" class="cropit-image-input">
+      <div class="cropit-preview"></div>
+      <div class="image-size-label">
+        Resize image
+      </div>
+      <input type="range" class="cropit-image-zoom-input">
+      <button class="rotate-ccw">Rotate counterclockwise</button>
+      <button class="rotate-cw">Rotate clockwise</button>
+
+      <button class="export">Export</button>
+    </div>
+
+    <script>
+      $(function() {
+        $('.image-editor').cropit({
+          exportZoom: 1.25,
+          imageBackground: true,
+          imageBackgroundBorderWidth: 20,
+          imageState: {
+            src: 'http://lorempixel.com/500/400/',
+          },
+        });
+
+        $('.rotate-cw').click(function() {
+          $('.image-editor').cropit('rotateCW');
+        });
+        $('.rotate-ccw').click(function() {
+          $('.image-editor').cropit('rotateCCW');
+        });
+
+        $('.export').click(function() {
+          var imageData = $('.image-editor').cropit('export');
+          window.open(imageData);
+        });
+      });
+    </script>
+  </body>
+</html>

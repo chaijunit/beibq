@@ -1,0 +1,168 @@
+{%extends "admin/base.html"%}
+{%block title%}
+设置用户- {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/user.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/user.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+{%include "admin/_sidebar.html"%}
+
+<div class="main">
+    <div class="main-wraper">
+        {%include "admin/_head.html"%}
+    <div class="main-content">
+        <div class="user-form">
+        <ol class="breadcrumb">
+            <li><a href="{{url_for("admin.user")}}">用户</a></li>
+            <li class="active">{{user.nickname}}</li>
+        </ol> 
+
+        <div class="panel">
+            <div class="panel-body user-panel">
+                {%for msg in get_flashed_messages()%}
+                {%if loop.first%}
+                <div class="alert {%if error%}alert-danger{%else%}alert-success{%endif%} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{msg.decode("utf-8")}}
+                    </div>
+                {%endif%}
+                {%endfor%}
+ 
+                <div class="section">
+                    <h3 class="title">头像设置</h3>
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label">头像</label>
+                        <div class="col-sm-10">
+                            <div id="avatar" class="thumbnail avatar-thumbnail fileinput-button">
+                                <img src="{{url_for("static", filename=user.origin_avatar())}}" alt="">
+                                <input id="avatar-input" type="file">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                <h3 class="title">基础设置</h3>
+                <form method="post">
+                    {{form.hidden_tag()}}
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="nickname">用户名</label>
+                        <div class="col-sm-10">
+                            <p>{{user.username}}</p>
+                        </div>
+                        </div>
+                    </div>
+ 
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="nickname">昵称</label>
+                        <div class="col-sm-10">
+                            <input class="form-control {%if form.nickname.errors%}input-error{%endif%}" type="text" name="nickname" value="{%if form.nickname.data%}{{form.nickname.data}}{%else%}{{user.nickname}}{%endif%}">
+                            {%for error in form.nickname.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-default" type="submit">保存修改</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+                <form  class="password-form">
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="password">密码</label>
+                        <div class="col-sm-10">
+                            <input class="form-control password" type="password" name="password" value="">
+                            <div class="btn-group">
+                            <a id="confirm" class="btn btn-primary confirm" href="javascript:;">确定</a>
+                            <a id="change" class="btn btn-default" href="javascript:;">修改密码</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {%include "_footer.html"%}
+
+    </div>
+
+
+</div>
+
+<div id="loading" class="loading-backdrop"><i class="fa fa-spinner fa-pulse fa-fw"></i></div>
+
+<div id="avatar-modal" class="modal fade avatar-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">修改图片</h4>
+            </div>
+            <div class="modal-body">
+                <div id="avatar-preview">
+                    <div class="avatar-preview">
+                    </div>
+                </div>
+                <div class="image-menu">
+                <span class="fa fa-square-o left-icon"></span>
+                <span class="fa fa-square-o right-icon"></span>
+                <input id="avatar-zoom-input" type="range" class="image-zoom-input">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary ok">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock content%}
+
+{%block scripts%}
+
+<script>
+    window.USER = {{user.id}};
+</script>
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+<script src="{{url_for("static", filename="asserts/cropit/dist/jquery.cropit.js")}}"></script>
+<script src="{{url_for("static", filename="js/admin/user.js")}}"></script>
+{%else%}
+<script src="{{url_for("static", filename="dist/js/user.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

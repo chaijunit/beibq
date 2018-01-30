@@ -1,0 +1,66 @@
+{
+  "name": "cropit",
+  "main": "dist/jquery.cropit.js",
+  "description": "Customizable crop and zoom.",
+  "version": "0.5.1",
+  "author": {
+    "name": "Scott Cheng",
+    "email": "me@scottcheng.com",
+    "url": "http://scottcheng.com"
+  },
+  "keywords": [
+    "crop",
+    "zoom",
+    "image editor"
+  ],
+  "homepage": "http://scottcheng.github.io/cropit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scottcheng/cropit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scottcheng/cropit/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "jshint": "jshint src test --reporter=node_modules/jshint-stylish"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "testDirectoryName": "test",
+    "unmockedModulePathPatterns": [
+      "constants",
+      "zoomer",
+      "cropit",
+      "plugin",
+      "jquery",
+      "lodash",
+      "fs"
+    ]
+  },
+  "dependencies": {
+    "jquery": ">=1.9"
+  },
+  "devDependencies": {
+    "babel-core": "~5.5.8",
+    "babel-jest": "~5.3.0",
+    "babel-loader": "~5.1.4",
+    "jest-cli": "^0.8.2",
+    "jshint-stylish": "~2.0.0",
+    "lodash": "~3.9.3",
+    "node-libs-browser": "~0.5.2",
+    "pica": "^1.0.7",
+    "webpack": "~1.9.11",
+    "webpack-dev-server": "~1.9.0"
+  },
+  "engine": "node >= 0.4.1",
+  "readmeFilename": "README.md"
+}

@@ -1,0 +1,94 @@
+{%extends "admin/base.html"%}
+{%import "_pagination.html" as page_macros%}
+{%block title%}
+书籍 - {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/book.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/book.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+{%include "admin/_sidebar.html"%}
+
+<div class="main">
+    <div class="main-wraper">
+    {%include "admin/_head.html"%}
+    <div class="main-content">
+        <div class="panel">
+            <div class="panel-body book-panel">
+                <div class="tab-group clearfix">
+                    <a class="tab-item {%if tab != "draft"%}active{%endif%}" href="{{url_for("admin.index")}}">我的书籍</a>
+                    <a class="tab-item {%if tab=="draft"%}active{%endif%}" href="{{url_for("admin.index", tab="draft")}}">草稿{%if count_draft%} <span class="count">{{count_draft}}</span>{%endif%}</a>
+                </div>
+                {%if books.items%}
+                <ul id="book-group" class="book-group">
+                    {%with type="admin"%}
+                    {%include "includes/_book.html"%}
+                    {%endwith%}
+
+                </ul>
+
+                {{page_macros.pagination_widget(books, "admin.index")}}
+                {%else%}
+                {%if tab=="draft"%}
+                <div class="no-content">
+                    <p class="msg">没有内容</p>
+                </div>
+                {%else%}
+                <div class="no-content">
+                    <p class="msg">您还没有任何书籍，请先创建书籍</p>
+                    <p>
+                    <a class="btn btn-book" href="{{url_for("admin.book_new")}}">开始写书</a>
+                    </p>
+                </div>
+                {%endif%}
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    {%include "_footer.html"%}
+    </div>
+</div>
+
+<div id="delete-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确定要删除吗？</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:" class="btn" data-dismiss="modal">取消</a>
+                <a href="javascript:" class="btn btn-danger ok">删除</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
+
+{%block scripts%}
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+<script src="{{url_for("static", filename="asserts/cropit/dist/jquery.cropit.js")}}"></script>
+<script src="{{url_for("static", filename="js/admin/book.js")}}"></script>
+{%else%}
+<script src="{{url_for("static", filename="dist/js/book.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

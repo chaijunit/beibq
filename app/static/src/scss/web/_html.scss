@@ -1,0 +1,205 @@
+.html-content-title{
+    font-size:34px;
+    font-weight:bold;
+    color:#333;
+    margin: 0;
+}
+
+.html-content {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  font-size: 16px;
+  line-height: 2;
+  word-wrap: break-word;
+    word-break:break-word;
+}
+
+.html-content>:first-child{
+    margin-top: 0!important;
+}
+.html-content>:last-child{
+margin-bottom: 0!important;
+}
+
+.html-content pre{
+    font-size: 13px;
+}
+
+// 列表
+.html-content ul, 
+.html-content ol{
+    padding:0;
+    margin:0 0 1.25em 1.5625em;
+}
+
+// 无序列表
+.html-content ul>li{
+    list-style-type: disc;
+}
+.html-content ol>li{
+    list-style-type: decimal;
+}
+
+// 表格
+.html-content .table-bordered>thead>tr>td, .html-content .table-bordered>thead>tr>th{
+    border-bottom-width: 1px;
+}
+
+.html-content img{
+    max-width: 100%;
+}
+
+.html-content {
+}
+
+.html-content td,
+.html-content th {
+    padding: 0;
+}
+
+.html-content a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.html-content a:hover,
+.html-content a:active {
+  text-decoration: underline;
+}
+
+.html-content hr {
+  height: 0;
+  margin: .9375em 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.html-content hr:before {
+  display: table;
+  content: "";
+}
+
+.html-content hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.html-content h1,
+.html-content h2,
+.html-content h3,
+.html-content h4,
+.html-content h5,
+.html-content h6{
+  position: relative;
+  font-weight: bold;
+}
+
+.html-content h1 {
+    font-size: 1.875em;
+    line-height: 1.2;
+    margin: 2em 0 1.25em;
+}
+
+.html-content h2 {
+    font-size: 1.625em;
+    line-height: 1.2;
+    margin: 1.75em 0 1em;
+}
+
+.html-content h3 {
+    font-size: 1.375em;
+    line-height: 1.2;
+    margin: 1.5em 0 .75em;
+}
+
+.html-content h4 {
+    //font-size: 18px;
+    font-size: 1.125em;;
+    line-height: 1;
+    margin: 1.25em 0 .625em;
+}
+
+.html-content h5 {
+    //font-size: 16px;
+    font-size: 1em;
+    line-height: 1;
+    margin: 1.125em 0 .5em;
+}
+
+.html-content h6 {
+    //font-size: 14px;
+    font-size: .875em;
+    line-height: 1;
+    margin: 1.125em 0 .5em;
+    color: #777;
+}
+
+.html-content blockquote {
+  border-left: .5em solid #eee;
+}
+
+.html-content dd {
+  margin-left: 0;
+}
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+pre.prettyprint{
+    margin: 10px 0;
+    line-height: 1.6;
+    color: inherit;
+    border: 0;
+}
+@media screen {
+  .str { color: #080 }  /* string content */
+  .kwd { color: #008 }  /* a keyword */
+  .com { color: #800 }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #066 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }  /* a markup tag name */
+  .atn { color: #606 }  /* a markup attribute name */
+  .atv { color: #080 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: rgba(102, 128, 153, 0.4) } /* IE indents via margin-left */
+ol.linenums { margin-left: 2.1875em;}
+ol.linenums > li { padding-left: .9375em;}
+pre.prettyprint {
+    display: block;
+    background-color: rgba(102, 128, 153, 0.05);
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1) inset, 2.2125em 0 0 rgba(102, 128, 153, 0.05) inset, 0 1px 0 rgba(102, 128, 153, 0.05);
+    padding: .29375em;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: 24px;
+    overflow: auto;
+
+}
+
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 { }
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}

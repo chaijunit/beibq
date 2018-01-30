@@ -1,0 +1,188 @@
+
+.header{
+    padding: 0 40px;
+    min-height: 45px;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+}
+
+
+.logo{
+    display: inline-block;
+    height: 27px;
+    font-size:  18px;
+    font-weight: bold;
+    position: relative;
+    color: #666;
+    padding-left: 5px;
+    &:hover, &:active, &:focus{
+        text-decoration: none;
+    }
+    >img{
+        height: 22px;
+        width: auto;
+        position: absolute;
+        left: -22px;
+        top: 1px;
+    }
+}
+
+.btn-book{
+    display: inline-block;
+    padding:6px 15px;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background: $new-book;
+    margin-right: 10px;
+    &:hover, &:focus{
+        background: darken($new-book, 10%);
+        text-decoration: none;
+        color: #fff;
+    }
+    &:active{
+        background: darken($new-book, 10%);
+    }
+}
+
+.sidebar{
+    width: 240px;
+    position: fixed;
+    background: #fff;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);;
+    border: $normal-border;
+    z-index: 1;
+    .nav{
+        li{
+            a{
+                padding: 10px 20px;
+                color: #666;
+                font-size: 15px;
+                i{
+                    float: right;
+                    margin-top: 4px;
+                }
+            }
+            &.active{
+                a{
+                    background: $themecolor;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.sidebar-wraper{
+    width: 260px;
+    padding-right: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}
+.sidebar-header{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.main{
+    position: relative;
+    min-height: 100%;
+    padding-left: 240px;
+    .footer{
+        margin-left: 240px;
+    }
+}
+.main-wraper{
+    padding-bottom: 100px;
+}
+
+.main-header{
+    padding: 20px;
+}
+
+.main-content{
+    padding: 0 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.header-nav{
+    display: inline-block;
+    >li{
+        display: inline-block;
+        position: relative;
+        >a{
+            &:hover, &:focus, &:active{
+                text-decoration: none;
+            }
+            color: #666;
+            font-size: 15px;
+            padding: 6px 15px;
+        }
+    }
+    .avatar{
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        margin-top: -2px;
+        border-radius: 10px;
+    }
+    .dropdown-menu{
+        min-width: 120px;
+    }
+}
+
+.btn-nav{
+    display: inline-block;
+}
+
+// 下拉菜单有箭头的指向
+.dropdown-sw{
+    top: 120%;
+    left: auto;
+    right: -10px;
+    &:after, &:before{
+        position: absolute;
+        display: inline-block;
+        content:"";
+    }
+    &:before{
+        border: 8px solid transparent;
+        border-bottom-color: rgba(0,0,0,0.15);
+        top:-16px;
+        right: 19px;
+        left: auto;
+    }
+    &:after{
+        border: 7px solid transparent;
+        border-bottom-color: #fff;
+        top:-14px;
+        right: 20px;
+        left:auto;
+    }
+}
+
+.panel{
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.panel-heading{
+    h3{
+        font-size: 18px;
+        margin: 0 0 8px;
+    }
+    p{
+        margin: 0;
+        color: #888;
+    }
+}
+
+

@@ -1,0 +1,155 @@
+@import '../base.scss';
+@import '_common.scss';
+@import '../base/uploadfile.scss';
+
+
+.panel-heading{
+    position: relative;
+    .add-user{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.user-panel{
+    .title{
+        margin: 0 0 20px;
+        font-size: 16px;
+    }
+}
+
+/* 用户设置 */
+
+.user-form{
+    width: 550px;
+    margin: 0 auto;
+}
+
+.password-form{
+    padding-top: 50px;
+    .btn-group{
+        float: left;
+        .btn{
+            margin-right: 10px;
+        }
+    }
+    .confirm{
+        display: none;
+    }
+}
+
+.password{
+    display: none;
+    width: 200px;
+    margin-right: 20px;
+}
+.show{
+    .password{
+        display: block;
+        float: left;
+    }
+    .confirm{
+        display: inline-block;
+    }
+}
+
+.avatar-thumbnail{
+    height: 150px;
+    width: 150px;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    .fa-book{
+        margin-top: 40px;
+        font-size: 65px;
+    }
+}
+
+.thumbnail{
+    margin-bottom:0;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.avatar-modal{
+    .modal-dialog{
+        width: 450px;
+    }
+}
+
+.avatar-preview{
+    height: 180px;
+    width: 180px;
+    background-color: $gray-whiter;
+    border: 1px solid $gray-white;
+    margin: 30px auto;
+}
+
+// 在线图片编辑模态对话框
+.cropit-preview-image-container{
+    cursor: move;
+}
+.cropit-preview-background{
+    opacity: .2;
+    cursor: auto;
+}
+
+.image-zoom-input{
+    appearance: none;
+    height: 5px;
+    background-color: #eee;
+    outline: none;
+    border-radius: 5px;
+    width: 258px !important;
+    margin: 0 auto;
+    &[disabled]{
+        cursor: no-drop;
+    }
+}
+
+.image-setting-menu{
+    position: relative;
+    margin: 20px auto;
+    width: 300px;
+    .left-icon{
+        position: absolute;
+        top: -4px;
+        left: 3px;
+        color: #d3d3d3;
+        font-weight: bold;
+    }
+    
+    .right-icon{
+        position: absolute;
+        top: -7px;
+        right: 0;
+        color: #d3d3d3;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.loading-backdrop{
+    display:none;
+    position:fixed;
+    text-align:center;
+    z-index:$max-zindex;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:.5;
+    background:#fff;
+    .fa{
+        font-size:50px;
+        display:inline-block;
+        position:absolute;
+        top:50%;
+        margin-top:-25px;
+    }
+}
+
+

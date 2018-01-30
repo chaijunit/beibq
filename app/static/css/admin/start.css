@@ -1,0 +1,210 @@
+@charset "UTF-8";
+html, body {
+  height: 100%;
+  position: relative;
+  font-size: 14px;
+  background: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "sans-serif"; }
+
+ul, li {
+  margin: 0;
+  padding: 0; }
+
+ul, ol, li {
+  list-style-type: none; }
+
+.disc-ul {
+  margin-left: 20px; }
+  .disc-ul li {
+    list-style-type: disc; }
+
+a {
+  color: #1B95E0; }
+  a:hover, a:focus {
+    color: #1B95E0; }
+
+h4 {
+  font-size: 16px;
+  margin: 0; }
+
+.container {
+  width: 1030px; }
+
+textarea {
+  resize: none; }
+
+.color-5 {
+  color: #555; }
+
+.color-9 {
+  color: #999; }
+
+.link-color-5 {
+  color: #555; }
+  .link-color-5:hover, .link-color-5:focus, .link-color-5:active {
+    color: #555; }
+
+.link-color-9 {
+  color: #999; }
+  .link-color-9:hover, .link-color-9:focus, .link-color-9:active {
+    color: #999; }
+
+.no-content {
+  margin: 20px 0;
+  text-align: center; }
+  .no-content .msg {
+    color: #999;
+    font-size: 16px; }
+
+/* 对话框样式 */
+.modal-content {
+  border-radius: 2px; }
+
+.modal-backdrop.in {
+  filter: alpha(opacity=20);
+  opacity: .2; }
+
+.pagination {
+  margin: 0; }
+  .pagination > li > a, .pagination > li > span {
+    color: #1B95E0; }
+  .pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .pagination > li:first-child > a, .pagination > li:first-child > span {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+  .pagination > .active > a, .pagination > .active > span {
+    background-color: #1B95E0;
+    border-color: #1B95E0; }
+    .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span:hover, .pagination > .active > span:focus {
+      background-color: #1B95E0;
+      border-color: #1B95E0; }
+
+.coreful {
+  color: #D32F2F; }
+
+.admin-enter {
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 24px;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  color: #1B95E0;
+  z-index: 9999; }
+  .admin-enter:hover, .admin-enter:focus, .admin-enter:active {
+    text-decoration: none;
+    color: #1B95E0;
+    background: #f8f8f8; }
+
+.alert {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.sign-remember {
+  font-size: 15px;
+  font-weight: normal; }
+  .sign-remember > input[type="checkbox"] {
+    width: 15px;
+    height: 16px;
+    margin: 0; }
+
+.input-error {
+  border: 1px solid #F44336; }
+
+.input-error-info {
+  color: #F44336;
+  margin-top: 5px;
+  display: block; }
+
+.b-main {
+  width: 650px;
+  float: left; }
+
+.main-content {
+  padding-bottom: 175px; }
+
+.b-side {
+  width: 350px;
+  float: left; }
+  .b-side.r-side {
+    padding-left: 40px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 50px 0;
+  text-align: center;
+  font-size: 13px; }
+
+.footer-items {
+  margin: 0 auto;
+  width: auto; }
+
+.footer-link {
+  color: #1677b2; }
+
+.footer-item {
+  display: inline-block;
+  margin-right: 10px;
+  color: #333; }
+  .footer-item.bold-item {
+    font-weight: bold;
+    color: #555; }
+
+.start-page, .login-page {
+  max-width: 700px;
+  margin: 80px auto 20px;
+  padding: 20px; }
+
+.login-page {
+  max-width: 400px; }
+
+.b-logo {
+  text-align: center; }
+  .b-logo > a {
+    position: relative;
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 5px;
+    line-height: 40px;
+    color: #1B95E0; }
+    .b-logo > a:hover, .b-logo > a:focus, .b-logo > a:active {
+      text-decoration: none;
+      color: #1B95E0; }
+    .b-logo > a > img {
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: -40px; }
+
+.start-content {
+  line-height: 28px;
+  color: #444; }
+  .start-content h1 {
+    font-size: 18px; }
+  .start-content ul {
+    padding: 0;
+    margin: 0 0 20px 25px; }
+    .start-content ul > li {
+      list-style-type: disc; }
+  .start-content .control-label {
+    text-align: left; }
+
+.login-content {
+  padding: 10px 20px; }
+  .login-content h1 {
+    font-size: 18px; }
+
+.btn-login {
+  display: block;
+  width: 100%; }

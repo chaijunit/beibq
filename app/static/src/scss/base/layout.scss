@@ -1,0 +1,51 @@
+//
+// 网页布局
+
+.b-main{
+    width: 650px;
+    float: left;
+}
+
+.main-content{
+    padding-bottom: 175px;
+}
+
+.b-side{
+    width: 350px;
+    float: left;
+    &.r-side{
+        padding-left: 40px;
+    }
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 0;
+    text-align: center;
+    font-size:13px;
+}
+
+.footer-items{
+    margin: 0 auto;
+    width: auto;
+}
+
+.footer-link{
+    color: darken($themecolor, 10%);
+}
+
+.footer-item{
+    display: inline-block;
+    margin-right:10px;
+    color: #333;
+    &.bold-item{
+        font-weight: bold;
+        color: #555;
+    }
+
+}
+
+

@@ -1,0 +1,43 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "cssnext": "^1.8.4",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-headerfooter": "^1.0.3",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "node-sass": "^4.7.1",
+    "precss": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "cssnext": "^1.8.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-headerfooter": "^1.0.3",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5",
+    "precss": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

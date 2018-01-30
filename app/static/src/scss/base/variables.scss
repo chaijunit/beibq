@@ -1,0 +1,48 @@
+// 变量文件
+
+$themecolor: #1B95E0;
+
+
+// 书籍图标颜色
+$bookcover_iconcolor: #1B95E0;
+$bookcover_backgroundcolor: #fff;
+
+$new-book: #dc7745;
+
+$errorcolor: #F44336;
+$redcolor: #D32F2F;
+
+
+// 字体尺寸
+$minsize: 12px;    // 最小尺寸
+$smallsize: 14px;   // 小尺寸
+$normalsize: 16px;  // 正常尺寸
+$middlesize: 18px;      // h3尺寸
+$largesize: 21px;      // h2 尺寸
+$hugesize: 24px;      // h1尺寸
+
+
+
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 13.5%); // #222
+$gray-dark:              lighten($gray-base, 20%);   // #333
+$gray:                   lighten($gray-base, 33.5%); // #555
+$gray-light:             lighten($gray-base, 46.7%); // #777
+$gray-lighter:           lighten($gray-base, 60.5%); // #9a9a9a
+$gray-white:           lighten($gray-base, 93.5%); // #eee
+$gray-whiter:           lighten($gray-base, 97%);  //  #f7f7f7;
+
+
+// border线条
+
+$normal-border: 1px solid #d0d0d0;
+$border-color: #d0d0d0;
+
+$box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+//z-index浮动高度
+$small-zindex: 99;
+$normal-zindex: 999;
+$max-zindex:3000;
+
+

@@ -1,0 +1,146 @@
+html, body{
+    height: 100%;
+    position: relative;
+    font-size:14px;
+    background: #fff;
+    font-family: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "sans-serif";
+}
+
+
+ul,li{margin:0;padding: 0;}
+ul,ol,li{list-style-type: none;}
+
+.disc-ul{
+    margin-left: 20px;
+    li{
+        list-style-type:disc;
+    }
+}
+
+a{
+    color: $themecolor;
+    &:hover, &:focus{
+        color: $themecolor;
+    }
+}
+
+h4{
+    font-size:16px;
+    margin: 0;
+}
+
+.container{
+    width: 1030px;
+}
+
+textarea{
+    resize: none;
+}
+
+.color-5{
+    color: #555;
+}
+.color-9{
+    color: #999;
+}
+
+.link-color-5{
+    color: #555;
+    &:hover, &:focus, &:active{
+        color: #555;
+    }
+}
+.link-color-9{
+    color: #999;
+    &:hover, &:focus, &:active{
+        color: #999;
+    }
+}
+
+
+.no-content{
+    margin: 20px 0;
+    text-align: center;
+    .msg{
+        color: #999;
+        font-size: 16px;
+    }
+}
+
+
+/* 对话框样式 */
+.modal-content{
+    border-radius: 2px;
+}
+
+.modal-backdrop{
+    &.in{
+        filter:alpha(opacity=20);
+        opacity: .2;
+    }
+}
+
+.pagination{
+    margin: 0;
+    >li{
+        >a, >span{
+            color: $themecolor;
+        }
+ 
+        &:last-child{
+            >a, >span{
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+        &:first-child{
+            >a, >span{
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+    >.active{
+        >a, >span{
+            background-color: $themecolor;
+            border-color: $themecolor;
+            &:hover, &:focus{
+                background-color: $themecolor;
+                border-color: $themecolor;
+            }
+        }
+    }
+}
+
+.coreful{
+    color: $redcolor;
+}
+
+
+.admin-enter{
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    border: $normal-border;
+    background: #fff;
+    color: $themecolor;
+    z-index: 9999;
+    &:hover, &:focus, &:active{
+        text-decoration: none;
+        color:  $themecolor; 
+        background: #f8f8f8;
+    }
+}
+
+.alert{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

@@ -1,0 +1,72 @@
+{%extends "admin/base.html"%}
+{%block title%}
+配置 - 北半球
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/start.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/start.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block navbar%}
+{%endblock navbar%}
+
+{%block content%}
+
+
+<div class="start-page">
+    {%include "admin/start/_head.html"%}
+    <div class="start-content">
+        {%if code==0%}
+        <p>config.py文件已经存在，如果您想重新设置配置信息，请先删除config.py文件；或者
+        <a href="{{url_for("admin.install")}}">继续安装</a>
+        </p>
+        {%elif code==1%}
+        <p>没有权限访问数据库，请检查你输入的用户名或密码是否正确</p>
+        <p class="b-btn">
+        <a class="btn btn-default" href="{{url_for("admin.setup", step=1)}}">返回上一步</a>
+        </p>
+        {%elif code==2%}
+        <p>数据库不存在，无法连接数据库</p>
+        <p>您可以在mysql命令行界面中输入：
+        <code>create database {name}</code>
+        来创建数据库
+        </p>
+        <p class="b-btn">
+        <a class="btn btn-default" href="{{url_for("admin.setup", step=1)}}">返回上一步</a>
+        </p>
+        {%elif code==3%}
+        <p>无法连接数据库，可能原因：</p>
+        <ul>
+            <li>填写信息有错</li>
+            <li>数据库没有启动</li>
+        </ul>
+        <p class="b-btn">
+        <a class="btn btn-default" href="{{url_for("admin.setup", step=1)}}">返回上一步</a>
+        </p>
+        {%endif%}
+    </div>
+</div>
+
+{%endblock content%}
+
+{%block scripts%}
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+{%else%}
+<script src="{{url_for("static", filename="dist/js/common.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

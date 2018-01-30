@@ -1,0 +1,90 @@
+{%extends "admin/base.html"%}
+{%block title%}
+添加用户 - {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/user.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/user.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+{%include "admin/_sidebar.html"%}
+
+<div class="main">
+    <div class="main-wraper">
+        {%include "admin/_head.html"%}
+    <div class="main-content">
+        <div class="user-form">
+        <ol class="breadcrumb">
+            <li><a href="{{url_for("admin.user")}}">用户</a></li>
+            <li class="active">添加用户</li>
+        </ol> 
+        <div class="panel">
+            <div class="panel-body user-panel">
+                <h3 class="title" >添加用户</h3>
+                <form method="post">
+                    {{form.hidden_tag()}}
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="">用户名</label>
+                        <div class="col-sm-8">
+                            <input name="username" class="form-control {%if form.username.errors%}input-error{%endif%}" type="text" autocomplete="off" placeholder="用户名" {%if form.username.data%}value="{{form.username.data}}"{%endif%}>
+                            {%for error in form.username.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                        <label class="col-sm-2 control-label" for="">密码</label>
+                        <div class="col-sm-8">
+                            <input name="password" class="form-control {%if form.password.errors%}input-error{%endif%}" type="text" autocomplete="off" placeholder="密码">
+                            {%for error in form.password.errors%}
+                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            {%endfor%}
+ 
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-default" type="submit">开始添加</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    {%include "_footer.html"%}
+
+    </div>
+</div>
+{%endblock content%}
+
+{%block scripts%}
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+{%else%}
+<script src="{{url_for("static", filename="dist/js/common.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

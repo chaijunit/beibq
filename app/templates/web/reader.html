@@ -1,0 +1,134 @@
+{%extends "web/base.html"%}
+{%block title%}
+{%if catalog%}
+{{catalog.title}} - {{book.name}} - {{site["name"]|upper}}
+{%else%}
+{{book.name}} - {{site["name"]|upper}}
+{%endif%}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/web/reader.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/reader.min.css")}}">
+{%endif%}
+
+{{super()}}
+<script type="text/javascript">
+    var width = document.documentElement.clientWidth;
+    if(width >= 810){
+        document.documentElement.className="catalog-menu-open";
+    }
+</script>
+
+{%endblock styles%}
+
+{%block navbar%}
+{%endblock navbar%}
+
+{%block content%}
+<div id="suspend-control-btn" class="catalog-menu-btn suspend-menu-btn">
+    <span class="fa fa-list"></span>
+    目录
+</div>
+ 
+<div class="book-container">
+    <div id="content-cover" class="content-cover"></div>
+ 
+    <div class="book-catalog absolute-catalog">
+        <div class="catalog-wraper">
+            <header class="catalog-head">
+                {%if current_user.is_authenticated and current_user.id==book.user_id%}
+                <a href="{{url_for("admin.book_edit", id=book.id)}}" class="btn btn-default btn-edit">
+                    <i class="fa fa-edit"></i>
+                    编辑
+                </a>
+                {%endif%}
+
+                <div class="site">
+                    <a class="logo" href="{{url_for("web.index")}}">
+                        <img src="{{url_for("static", filename="img/logo.png")}}">
+                    </a>
+                    <div class="name">
+                        <a href="{{url_for("web.index")}}">{{site["name"]|upper}}</a>
+                    </div>
+                </div>
+
+                <h2 class="book-name">
+                    <a href="{{url_for("web.reader", id=book.id)}}" class="link-color-5">{{book.name}}</a>
+               </h2>
+ 
+            </header>
+            <div id="catalog-content" class="catalog-content booktool-data tab-content">
+                {%include "web/_catalog.html"%}
+            </div>
+        </div>
+    </div>
+    <div id="book-content" class="book-content">
+        <div id="book-wraper" class="content-wraper">
+            <div class="main-body">
+        
+            <header class="book-header">
+                <div class="container">
+                    <div id="header-loading" class="header-icon">
+                        <span class="fa fa-spinner fa-pulse fa-2x fa-fw margin-bottom"></span>
+                    </div>
+                </div>
+            </header>
+ 
+            <div id="content-body" class="content-body interact-action-group">
+                {%if catalog%}
+
+                <div class="title">
+                    <h1 class="html-content-title">{{catalog.title}}</h1>
+                </div>
+                <div id="html-content" class="html-content">
+                    {{catalog.publish_html|safe}}
+                </div>
+                <div class="page-button clearfix">
+                    {%if prev%}
+                    <a href="{{url_for("web.reader", id=book.id, catalog_id=prev.id)}}" class="bb-link-action" data-method="prev"><span class="fa fa-arrow-circle-left"></span>上一页</a>
+                    {%endif%}
+                    {%if next%}
+                    <a href="{{url_for("web.reader", id=book.id, catalog_id=next.id)}}" class="pull-right bb-link-action" data-method="next">下一页<span class="fa fa-arrow-circle-right"></span></a>
+                    {%endif%}
+                    
+                </div>
+
+                {%endif%}
+            </div>
+            </div>
+        {%include "_footer.html"%}
+        </div>
+
+    </div>
+</div>
+
+{%if current_user.is_authenticated%}
+<a class="admin-enter" href="{{url_for("admin.index")}}">
+    <span class="fa fa-dashboard"></span>
+</a>
+{%endif%}
+
+{%endblock content%}
+
+{%block scripts%}
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+<script src="{{url_for("static", filename="asserts/mousetrap/mousetrap.js")}}"></script>
+<script src="{{url_for("static", filename="js/web/reader.js")}}"></script>
+{%else%}
+<script src="{{url_for("static", filename="dist/js/reader.min.js")}}"></script>
+{%endif%}
+
+
+{{super()}}
+{%endblock scripts%}
+
+

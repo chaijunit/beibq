@@ -1,0 +1,89 @@
+{%extends "web/base.html"%}
+{%import "_pagination.html" as page_macros%}
+{%block title%}
+{{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/web/web.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/web.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+<div class="main-wraper">
+    <div class="main-body">
+        <header class="header">
+        <div class="site">
+            <h1 class="name">
+                <img src="{{url_for("static", filename="img/logo.png")}}" class="logo" alt="">
+                {{site["name"]|upper}}
+            </h1>
+            <p class="description">{{site["description"]}}</p>
+        </div>
+        </header>
+
+        <div class="container">
+            <div class="b-main">
+                <div class="section">
+                    <h3 >书籍列表</h3>
+                    <ul class="book-group">
+                    {%if catalogs.items%}
+                        {%with type="home"%}
+                        {%include "includes/_book.html"%}
+                        {%endwith%}
+                        {{page_macros.pagination_widget(catalogs, "web.index")}}
+                    {%else%}
+                    <div class="no-content">
+                    <p class="msg">没有内容</p>
+                    </div>
+                    {%endif%}
+                    </ul>
+                </div>
+            </div>
+            <div class="b-side r-side">
+                <div class="section">
+                    <h3>关于本站</h3>
+                    <p>{{site["about"]}}</p>
+                </div>
+                {%if not current_user.is_authenticated%}
+                <div class="section">
+                    <a class="login" href="{{url_for("admin.login")}}">登录</a>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+
+    {%include "_footer.html"%}
+</div>
+
+{%if current_user.is_authenticated%}
+<a class="admin-enter" href="{{url_for("admin.index")}}">
+    <span class="fa fa-dashboard"></span>
+</a>
+{%endif%}
+
+{%endblock content%}
+
+{%block scripts%}
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+{%else%}
+<script src="{{url_for("static", filename="dist/js/common.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

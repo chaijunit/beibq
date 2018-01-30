@@ -1,0 +1,21 @@
+
+.sign-remember{
+    font-size: 15px;
+    font-weight: normal;
+    >input[type="checkbox"]{
+        width: 15px;
+        height: 16px;
+        margin: 0;
+    }
+}
+
+.input-error{
+    border: 1px solid $errorcolor;
+}
+
+.input-error-info{
+    color: $errorcolor;
+    margin-top: 5px;
+    display: block;
+}
+

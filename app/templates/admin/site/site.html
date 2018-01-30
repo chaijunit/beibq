@@ -1,0 +1,116 @@
+{%extends "admin/base.html"%}
+{%block title%}
+站点设置 - {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/site.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/site.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block content%}
+
+{%include "admin/_sidebar.html"%}
+
+<div class="main">
+    <div class="main-wraper">
+        {%include "admin/_head.html"%}
+    <div class="main-content">
+        <div class="site-form">
+            <ol class="breadcrumb">
+                <li><a href="{{url_for("admin.index")}}">主界面</a></li>
+                <li class="active">站点设置</li>
+            </ol> 
+ 
+        <div class="panel">
+            <div class="panel-body control-panel">
+                <div class="site-form">
+                {%for msg in get_flashed_messages()%}
+                {%if loop.first%}
+                <div class="alert {%if error%}alert-danger{%else%}alert-success{%endif%} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{msg.decode("utf-8")}}
+                    </div>
+                {%endif%}
+                {%endfor%}
+ 
+                    <form action="" method="post">
+                    {{form.hidden_tag()}}
+                        <h3 class="title">站点设置</h3>
+                        <div class="form-group clearfix">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="">名称</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control {%if form.name.errors%}input-error{%endif%}" type="text" name="name" value="{%if form.name.data%}{{form.name.data}}{%else%}{{site["name"]}}{%endif%}">
+                                    {%for error in form.name.errors%}
+                                    <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                                    {%endfor%}
+ 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="row">
+                                <label class="col-sm-3 control-label">一句话描述</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control {%if form.description.errors%}input-error{%endif%}" type="text" name="description" value="{%if form.description.data%}{{form.description.data}}{%else%}{{site["description"]}}{%endif%}">
+                                    {%for error in form.description.errors%}
+                                    <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="row">
+                                <label class="col-sm-3 control-label">关于本站</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" name="about" cols="30" rows="5" placeholder="描述">{%if form.about.data%}{{form.about.data}}{%else%}{{site["about"]}}{%endif%}</textarea>
+                                </div>
+                            </div>
+                        </div>
+ 
+                        <div class="form-group">
+                            <div class="row">
+                            <div class="col-sm-offset-3 col-sm-9">
+                            <button class="btn btn-default" type="submit">保存修改</button>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {%include "_footer.html"%}
+
+    </div>
+
+
+</div>
+
+
+
+{%endblock content%}
+
+{%block scripts%}
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+{%else%}
+<script src="{{url_for("static", filename="dist/js/common.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

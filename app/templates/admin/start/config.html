@@ -1,0 +1,7 @@
+#coding: utf-8
+from app.config_default import Config as DefaultConfig
+
+class Config(DefaultConfig):
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://{{username}}:{{password}}@{{host}}/{{db}}?charset=utf8'
+
+

@@ -1,0 +1,24 @@
+<div id="tab-menu" class="tab-group clearfix" data-id="{{book.id}}">
+    <a href="#book-catalogs" data-type="book" class="tab-item active" >目录</a>
+    <a href="#book-info" data-type="info" class="tab-item" >信息</a>
+</div>
+
+<div id="book-catalogs" class="reader-catalogs tab-pane fade in active">
+    {%for c in catalogs recursive%}
+    <a class="reader-catalog bb-link {%if catalog.id==c.id%}active{%endif%}" data-id="{{book.id}}" data-catalog="{{c.id}}" href="{{url_for("web.reader", id=book.id, catalog_id=c.id)}}">
+    {%for i in range(loop.depth-1)%}
+    <span class="indent"></span>
+    {%endfor%}
+    {{c.title}}</a>
+    {%if c.catalogs%}
+    {{loop(c.catalogs)}}
+    {%endif%}
+    {%endfor%}
+</div>
+
+<div id="book-info" class="info-panel tab-pane fade">
+    <div class="loading hide">
+        <span class="fa fa-spinner fa-pulse fa-2x fa-fw margin-bottom"></span>
+    </div>
+</div>
+

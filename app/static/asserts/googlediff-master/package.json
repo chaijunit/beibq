@@ -1,0 +1,38 @@
+{
+  "contributors": [
+    {
+      "name": "Shimon Doodkin",
+      "email": "helpmepro1@gmail.com",
+      "homepage": "http://doodkin.com"
+    },
+    {
+      "name": "Ryan Graham",
+      "email": "r.m.graham@gmail.com",
+      "homepage": "https://github.com/rmg"
+    }
+  ],
+  "author": "Neil Fraser <root@neil.fraser.name> (http://neil.fraser.name/)",
+  "name": "googlediff",
+  "description": "Simple packaging of Neil Fraser's original google-diff-match-patch",
+  "version": "0.1.0",
+  "homepage": "http://code.google.com/p/google-diff-match-patch/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shimondoodkin/googlediff.git"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ]
+}

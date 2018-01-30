@@ -1,0 +1,64 @@
+@import '../base.scss';
+
+.start-page, .login-page{
+    max-width: 700px;
+    margin: 80px auto 20px;
+    padding: 20px;
+}
+
+.login-page{
+    max-width: 400px;
+}
+
+.b-logo{
+    text-align: center;
+    >a{
+        position: relative;
+        font-size: 26px;
+        font-weight: bold;
+        padding-left: 5px;
+        line-height: 40px;
+        color: $themecolor;
+        &:hover, &:focus,&:active{
+            text-decoration: none;
+            color: $themecolor;
+        }
+        >img{
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            left: -40px;
+        }
+    }
+}
+
+.start-content{
+    line-height: 28px;
+    color: #444;
+    h1{
+        font-size: 18px;
+    }
+    ul{
+        padding: 0;
+        margin: 0 0 20px 25px;
+        >li{
+            list-style-type: disc;
+        }
+    }
+    .control-label{
+        text-align: left;
+    }
+}
+
+.login-content{
+    padding: 10px 20px;
+    h1{
+        font-size: 18px;
+    }
+}
+.btn-login{
+    display: block;
+    width: 100%;
+}
+
+

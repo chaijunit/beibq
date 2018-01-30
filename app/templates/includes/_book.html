@@ -1,0 +1,87 @@
+{%if type=="admin"%}
+    {%for book in books.items%}
+    <li class="book-item">
+    <div class="inner-book clearfix">
+        <div class="media-left">
+            <a class="cover" href="{{url_for("web.reader", id=book.id)}}">
+                {%if book.cover%}
+                <img src="{{url_for("static", filename = book.origin_cover())}}" alt="{{book.name}}" />
+                {%endif%}
+
+            </a>
+        </div>
+        <div class="media-body">
+            <div class="info">
+                <div class="book-info">
+                    <a class="name" href="{{url_for("web.reader", id=book.id)}}">{{book.name}}</a>
+                    <p class="brief">
+                    {{book.brief}}
+                    </p>
+                </div>
+                <div class="book-footer">
+                    <span>更新于：{{book.publish_timestamp|friendly_time}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="media-right">
+            <div class="book-menu">
+                <div class="btn-group">
+                    <a class="btn btn-default" href="{{url_for("admin.book_edit", id=book.id)}}">编辑</a>
+                    <a href="javascript:void(0);" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{url_for("admin.book_detail", id=book.id)}}">设置</a></li>
+                        <li class="divider"></li>
+                        <li><a class="careful delete-book" href="javascript:void(0);" data-id="{{book.id}}">删除</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </li>
+    {%endfor%}
+
+{%elif type=="home"%}
+
+{%for book, catalog in catalogs.items%}
+    <div class="catalog-item">
+        <h3 class="catalog-info">
+            <a href="{{url_for("web.reader", id=book.id, catalog_id=catalog.id)}}" class="catalog-title">{{catalog.title}}</a>
+            <span class="color-9">{{catalog.first_publish|friendly_time}}</span>
+        </h3>
+        {%if catalog.abstract%}
+        <div class="abstract">
+            {{catalog.abstract}}
+        </div>
+        {%endif%}
+        <h5 class="from">来自书籍</h5>
+        <div class="book-item">
+            <div class="inner-book">
+                <div class="media-left">
+                    <a href="{{url_for("web.reader", id = book.id)}}" class="cover">
+
+                        {%if book.cover%}
+                        <img src="{{url_for("static", filename = book.origin_cover())}}" alt="{{book.name}}" />
+                        {%endif%}
+                    </a>
+                </div>
+                <div class="media-body">
+                    <div class="info">
+                        <div class="book-info">
+                            <div class="book-name">
+                                <a href="{{url_for("web.reader", id = book.id)}}" class="name">{{book.name}}</a>
+                            </div>
+                            <div class="brief">
+                                {{book.brief}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endfor%}
+
+
+{%endif%}

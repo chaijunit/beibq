@@ -1,0 +1,74 @@
+@import '../base.scss';
+@import '../book.scss';
+
+.header{
+    padding: 60px 0;
+}
+
+.site{
+    padding: 0 10px;
+    text-align: center;
+    .name{
+        position: relative;
+        display: inline-block;
+        padding-left: 50px;
+        margin: 0 0 10px;
+        font-size: 52px;
+        .logo{
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 50px;
+            width: 50px;
+        }
+    }
+    .description{
+        font-size: 16px;
+        color: #888;
+    }
+}
+
+
+.section{
+    margin-bottom: 20px;
+    >h3{
+        font-size: 16px;
+        margin: 0 0 10px;
+        padding-bottom: 10px;
+        border-bottom: $normal-border;
+    }
+    .login{
+        color: #555;
+        font-weight: bold;
+        &:hover, &:focus, &:active{
+            color: #555;
+        }
+    }
+}
+
+
+.main-wraper{
+    position: relative;
+    min-height: 100%;
+    .main-body{
+        padding-bottom: 150px;
+    }
+}
+
+@media (max-width: 1080px){
+    .container{
+        width: auto;
+        padding: 0 20px;
+    }
+    .b-main, .b-side{
+        float: none;
+        width: auto;
+    }
+    .r-side{
+        padding: 0 !important;
+    }
+}
+
+

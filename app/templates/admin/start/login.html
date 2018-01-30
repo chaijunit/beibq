@@ -1,0 +1,82 @@
+{%extends "admin/base.html"%}
+{%block title%}
+登录 - {{site["name"]|upper}}
+{%endblock title%}
+
+{%block metas%}
+{{super()}}
+{%endblock metas%}
+{%block styles%}
+{%if config.get("DEBUG")%}
+{%include "_common-css.html"%}
+<link rel="stylesheet" href="{{url_for("static", filename="css/admin/start.css")}}">
+{%else%}
+<link rel="stylesheet" href="{{url_for("static", filename="dist/css/start.min.css")}}">
+{%endif%}
+
+{{super()}}
+{%endblock styles%}
+
+{%block navbar%}
+{%endblock navbar%}
+{%block content%}
+
+<div class="login-page">
+    {%include "admin/start/_head.html"%}
+    <div class="login-content">
+        <h1 class="title">登录北半球</h1>
+
+        {%for msg in get_flashed_messages()%}
+        {%if loop.first%}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{msg.decode("utf-8")}}
+        </div>
+        {%endif%}
+        {%endfor%}
+
+        <form action="{{url_for("admin.login")}}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <input name="username" class="form-control" type="text" placeholder="用户名">
+                {%if form.username.errors%}
+                {%for error in form.username.errors%}
+                <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                {%endfor%}
+                {%endif%}
+            </div>
+            <div class="form-group">
+                <input name="password" class="form-control" type="password" placeholder="密码" >
+                {%if form.password.errors%}
+                {%for error in form.password.errors%}
+                <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                {%endfor%}
+                {%endif%}
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-login">登录</button>
+            </div>
+            <div class="form-group">
+                <label class="sign-remember">
+                    <input class="checkbox-inline" type="checkbox"  name="remember" {%if form.remember.data%}checked="checked"{%endif%}>
+                    <span>记住我</span>
+                </label>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock content%}
+
+{%block scripts%}
+
+{%if config.get("DEBUG")%}
+{%include "_common-js.html"%}
+{%else%}
+<script src="{{url_for("static", filename="dist/js/common.min.js")}}"></script>
+{%endif%}
+
+{{super()}}
+{%endblock scripts%}
+
+

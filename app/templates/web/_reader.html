@@ -1,0 +1,20 @@
+{%if catalog%}
+
+<div class="title">
+    <h1 class="html-content-title">{{catalog.title}}</h1>
+</div>
+<div id="html-content" class="html-content">
+    {{catalog.publish_html|safe}}
+</div>
+<div class="page-button clearfix">
+    {%if prev%}
+    <a href="{{url_for("web.reader", id=book.id, catalog_id=prev.id)}}" class="bb-link-action" data-method="prev"><span class="fa fa-arrow-circle-left"></span>上一页</a>
+    {%endif%}
+    {%if next%}
+    <a href="{{url_for("web.reader", id=book.id, catalog_id=next.id)}}" class="pull-right bb-link-action" data-method="next">下一页<span class="fa fa-arrow-circle-right"></span></a>
+    {%endif%}
+</div>
+
+{%endif%}
+
+

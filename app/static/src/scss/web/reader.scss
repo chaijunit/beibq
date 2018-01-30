@@ -1,0 +1,624 @@
+@import '../base.scss';
+@import '_html.scss';
+
+/* site */
+.site{
+    text-align: center;
+    margin-bottom: 20px;
+    .logo{
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        width: 40px;
+        overflow: hidden;
+        >img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .name{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin: 3px 0;
+        >a{
+            color: #555;
+            &:hover, &:active, &:focus{
+                text-decoration: none;
+                color: $themecolor;
+            }
+        }
+    }
+
+}
+
+.nav{
+    .open{
+        >a{
+            &:hover, &:focus{
+                background: transparent;
+            }
+        } 
+    }
+}
+
+
+.message-dropdown{
+    min-width: 120px;
+    >li{
+        position: relative;
+    }
+    .counter{
+        position: absolute;
+        display: inline-block;
+        padding: 2px 5px;
+        color: #fff;
+        top: 4px;
+        right: 5px;
+        background: $errorcolor;
+        border-radius: 25px;
+        font-size: 13px;
+        line-height: 13px;
+        color: #fff;
+        max-width: 50px;
+        text-overflow: ellipsis;
+        word-wrap: normal;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+.dropdown-menu{
+    .divider{
+        margin: 3px 0;
+    }
+}
+
+.tab-group{
+    border-bottom: $normal-border;
+    padding: 0;
+    .tab-item{
+        float: left;
+        padding: 5px 12px;
+        font-size: 15px;
+        color: #666;
+        font-weight: bold;
+        &:hover, &:focus, &:active{
+            color: #666;
+            text-decoration: none;
+        }
+        &.active{
+            color: $themecolor;
+            margin-bottom: -1px;
+            border-bottom: 2px solid $themecolor;
+            &:hover, &:focus, &:active{
+                color: $themecolor;
+            }
+        }
+    }
+}
+
+.footer{
+    text-align: center;
+    padding:30px 0 10px 0;
+    height: 118px;
+    margin-top:30px;
+}
+
+
+//////////////////////////////
+.book-container{
+    position: relative; 
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    .content-cover{
+        display:none;
+        position:absolute;
+        z-index:98;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        opacity:0.5;
+        background:#000;
+        cursor:pointer;
+    }
+}
+.book-catalog{
+    position: absolute;
+    height: 100%;
+    background: #f8f8f8;
+    &.fixed-catalog{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        .catalog-wraper{
+            height: 100%;
+            overflow-y: scroll;
+        }
+    }
+    .catalog-wraper{
+        width: 320px;
+        padding-right: 20px;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
+
+.catalog-head{
+    position: relative;
+    width: 300px;
+    background: #fff;
+    padding: 20px 0;
+    border-bottom: $normal-border;
+    .book-action{
+        text-align: center;
+        margin: 8px 0 0;
+    }
+    .book-action-item{
+        display: inline-block;
+        font-size: 12px;
+        border: $normal-border;
+        border-radius: 2px;
+        overflow: hidden;
+        color: #333;
+        padding: 4px 6px;
+        margin-left: 2px;
+        font-weight: bold;
+        overflow: hidden;
+        &:hover{
+            background: #e6e6e6;
+        }
+        &:hover, &:focus, &:active{
+            color: #333;
+        }
+        &.selected{
+            background: $themecolor;
+            color: #fff;
+            border: 1px solid $themecolor;
+            &:hover{
+                background: $themecolor;
+            }
+        }
+    }
+    .book-name{
+        margin: 10px 0 5px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .btn-edit{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 3px 10px;
+        font-size: 13px;
+    }
+}
+
+
+.book-content{
+    padding: 0;
+    position: absolute;
+    top:0;
+    left: 300px;
+    bottom: 0;
+    right: 0;
+    z-index: 90;
+    overflow-y: auto;
+    -webkit-overflow-scrolling:touch;
+    .title{
+        margin: 0 0 10px;
+        padding: 0 0 20px;
+        border-bottom: $normal-border;
+        .meta{
+            margin-top: 5px;
+            color: #999;
+            span{
+                margin-right: 5px;
+            }
+        }
+ 
+    }
+    .like-section{
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        .btn-like{
+            border: 1px solid $new-book;
+            color: $new-book;
+            &.selected{
+                background: $new-book;
+                color: #fff;
+            }
+        }
+    }
+
+}
+
+.book-title{
+    padding:20px 10px 20px 20px;
+    margin:0;
+    font-size:16px;
+    font-weight:bold;
+    border-bottom: $normal-border;
+    .title{
+        color:#555;
+        &:hover{
+            color: #0099FF;
+        }
+    }
+}
+.reader-catalog{
+    display: block;
+    padding: 8px 10px 8px 20px;
+    color:#333;
+    font-size: 15px;
+    &.active{
+        color: #0099FF;
+    }
+    .indent{
+        padding-left: 20px;
+    }
+}
+
+
+.catalog-content {
+    width:300px; 
+    padding-bottom: 100px;
+    .comment-item{
+        padding:10px;
+        .author{
+            font-size: 14px;
+            margin-bottom: 5px;
+            .avatar{
+                height: 20px;
+                width: 20px;
+            }
+        }
+        .content{
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 3px;
+            .click-cover{
+                top: 120px;
+                height: 24px;
+                line-height: 18px;
+            }
+        }
+        .meta{
+            font-size: 14px;
+        }
+    }
+    li{
+        a{
+            color: #333;
+            font-size: 16px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.page-button{
+    margin-top: 20px;
+    a{
+        display: inline-block;
+        color: #333;
+        border-radius: 2px;
+        padding: 6px 12px 8px;
+        background: #f8f8f8;
+        border: $normal-border;
+        &:hover{
+            background: #f0f0f0;
+        }
+    }
+}
+
+
+.book-header{
+    position: relative;
+    height: 50px;
+    padding: 10px 0;
+    .header-icon {
+        position: absolute;
+        &.loading{
+            left: 50%;
+            .fa{
+                display: block;
+            }
+        }
+        .fa-spinner{
+            display: none;
+            color: $themecolor;
+            //color: #fff;
+            margin: 6px 0 0 -18px;
+            //margin: 6px 0 0;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.tab-pane{
+    .loading{
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #777;
+    }
+}
+
+
+
+.book-header-container{
+    margin: 0 20px;
+    min-width: 600px;
+}
+
+.content-wraper{
+    position: relative;
+    min-height: 100%;
+}
+
+.catalog-menu-btn{
+    display: inline-block;
+    position: fixed;
+    left:15px;
+    bottom:15px;
+    border: $normal-border;
+    background: #fff;
+    z-index:1999;
+    padding: 3px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    &:hover{
+        color: #333;
+    }
+    .fa{
+        font-size: 19px;
+        display: block;
+    }
+}
+
+
+
+.book-container{
+    .absolute-catalog{
+        position: absolute;
+        left: -300px;
+        width: 300px;
+        top:0;
+        bottom: 0;
+        z-index: 100;
+        overflow:hidden;
+        border-right: $normal-border;
+        -webkit-transition: left .3s ease-out;
+        -moz-transition: left .3s ease-out;
+        -o-transition: left .3s ease-out;
+        transition: left .3s ease-out;
+        -webkit-overflow-scrolling:touch;
+    }
+    .book-content{
+        position: absolute;
+        top:0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 90;
+        overflow-y: auto;
+        -webkit-transition: left .3s ease-out;
+        -moz-transition: left .3s ease-out;
+        -o-transition: left .3s ease-out;
+        transition: left .3s ease-out;
+        -webkit-overflow-scrolling:touch;
+    }
+
+}
+
+.book-content .content-body{
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    min-height: 95%;
+    padding: 10px 40px 40px 40px;
+    margin:0 auto;
+    background: #fff;
+}
+
+html.catalog-menu-open{
+    .book-container{
+        overflow: hidden;
+        .absolute-catalog{
+            left: 0;
+        }
+        .book-content{
+            left: 300px;
+        }
+    }
+}
+
+.html-content{
+    font-size:16px;
+}
+
+.book-container .content-cover{
+    display:none;
+    position:absolute;
+    z-index:98;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    opacity:0.5;
+    background:#000;
+    cursor:pointer;
+}
+
+.support-hit{
+    color: $new-book;
+    font-size: 16px;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+@media (min-width: 460px) and (max-width: 810px){
+    html.catalog-menu-closing .book-container .content-cover{
+        display:block;
+    }
+    html.catalog-menu-open .book-container .content-cover{
+        display:block;
+    }
+    .book-container .book-content {
+        overflow-x:hidden;
+    }
+}
+
+@media (max-width: 810px) {
+    .book-container{
+        background: #fff;
+        .book-content{
+            width: 100%;
+            .content-body{
+                padding: 10px 20px 20px;
+                border: none;
+            }
+            .title{
+                margin: 0 -20px 10px;
+                padding: 0 20px 10px;
+            }
+        }
+    }
+    .comment-title{
+        margin: 0 -20px;
+        padding: 0 20px 10px;
+    }
+    .comment-section{
+        .comment-item{
+            margin: 0 -20px;
+            padding: 10px 20px;
+        }
+    }
+
+    select:focus,textarea:focus:focus,input:focus{font-size:16px !important;}
+}
+
+@media (max-width: 459px){
+    .book-container{
+        .absolute-catalog{
+            //width: 100%;
+            left: -100%;
+            .catalog-wraper{
+                width: 120%;
+                padding-right: 20%;
+            }
+            .catalog-head{
+                width: 100%;
+            }
+            .catalog-content{
+                width: 100%;
+            }
+        }
+        .book-content{
+            width: 100%;
+        }
+    }
+    
+    html.catalog-menu-open{
+        .book-container{
+            .absolute-catalog{
+                left: 0;
+                width: 100%;
+            }
+            .book-content{
+                left: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width:600px){
+    .book-header-container{
+        .catalog-menu-btn{
+            display:none;
+        }
+    }
+    .suspend-menu-btn{
+        display:block;
+    }
+}
+
+.main-body{
+    padding-bottom: 150px;
+}
+
+.info-panel{
+    .section{
+        padding: 10px 10px 0;
+    }
+    .section-title{
+        color: #999;
+        margin: 0 0 10px;
+    }
+    .info-group{
+        color: #555;
+        margin-bottom: 10px;
+        &:before, &:after{
+            display: table;
+            content: " ";
+            clear:both;
+        }
+        .col-sm-2{
+            font-size: 13px;
+            padding: 0;
+            color: #555;
+        }
+        .col-sm-4{
+            padding: 0;
+        }
+        .btn-ebook{
+            font-size: 12px;
+            padding: 2px 10px;
+            color: #555;
+        }
+    }
+    .book-cover{
+        height: 75px;
+        width: 62px;
+        padding: 0;
+        color: $themecolor;
+        background-color: #fff;
+        text-align: center;
+        border: $normal-border;
+        overflow: hidden;
+        border-radius: 4px;
+        >img{
+            width: 100%;
+            height: 100%;
+        }
+        .fa-book{
+            font-size: 32px;
+            margin-top: 20px;
+        }
+    }
+    .brief{
+        font-size: 13px;
+    }
+    .center-text{
+        text-align: center;
+    }
+    .center-group{
+        text-align:center;
+        .center-btn{
+            padding: 3px 30px;
+        }
+    }
+
+}
+
+

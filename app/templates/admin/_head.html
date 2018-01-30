@@ -1,0 +1,20 @@
+<header class="main-header clearfix">
+<div class="pull-right">
+    <ul class="header-nav">
+        <li><a href="javascript:void(0);" data-toggle="dropdown">
+            <img class="avatar" src="{{url_for("static", filename=current_user._20px_avatar())}}" alt="">
+            {{current_user.nickname}}
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-sw">
+            <li><a href="{{url_for("admin.user_detail", id=current_user.id)}}">个人中心</a></li>
+            <li><a href="{{url_for("admin.logout")}}">退出</a></li>
+        </ul>
+        </li>
+    </ul>
+    <ul class="btn-nav">
+        <li><a href="{{url_for("admin.book_new")}}" class="btn btn-book">开始写书</a></li>
+    </ul>
+</div>
+</header>
+ 
