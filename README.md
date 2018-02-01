@@ -24,13 +24,13 @@ beibq使用的数据库是mysql，安装前需要先安装mysql
 pip install -r requirements.txt
 ```
 
-#### 2. 启动程序
+#### 3. 启动程序
 
 ```
 python manage.py runserver -h 0.0.0.0
 ```
 
-#### 3. 配置站点
+#### 4. 配置站点
 在浏览器中输入http://127.0.0.1:5000
 
 第一次访问会跳转到配置界面，根据指示配置站点信息后就能使用beibq
