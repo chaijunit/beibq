@@ -8,7 +8,8 @@ beibq的特点:
 - 高效、便捷的在线书籍编辑器，支持Markdown标记语言
 - 响应式设计，自适应各种平台界面
 
-beibq的编辑器花了我不少时间实现，我也单独把它开源出来：[bookeditor](https://github.com/chaijunit/bookeditor)
+beibq的编辑器因为是用纯js实现，单独把它开源出来：[bookeditor](https://github.com/chaijunit/bookeditor)
+
 
 #### 1. 编辑器
 ![编辑器](http://uploadimg.markbj.com/static/resource/image/book/eaa4d28c077511e8a4ac00163e13356e.png)
