@@ -12,7 +12,13 @@ beibq的编辑器是使用[bookeditor](https://github.com/chaijunit/bookeditor)�
 
 ## 安装使用
 
-#### 1. 安装依赖包
+#### 1. 安装mysql
+
+beibq使用的数据库是mysql，安装前需要先安装mysql
+
+我使用的是centos，安装方法可以参考该文档：[Installing MySQL on Linux Using the MySQL Yum Repository](https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html)
+
+#### 2. 安装依赖包
 
 ```
 pip install -r requirements.txt
