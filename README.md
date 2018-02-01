@@ -10,6 +10,12 @@ beibq的特点:
 
 beibq的编辑器是使用[bookeditor](https://github.com/chaijunit/bookeditor)，这是一个开源的Markdown在线写书编辑器
 
+#### 1. 编辑器
+![编辑器](http://uploadimg.markbj.com/static/resource/image/book/eaa4d28c077511e8a4ac00163e13356e.png)
+
+#### 2. 书籍列表
+![我的书籍](http://uploadimg.markbj.com/static/resource/image/book/f66e396e077511e8a4ac00163e13356e.png)
+
 ## 安装使用
 
 #### 1. 安装mysql
@@ -32,6 +38,7 @@ python manage.py runserver -h 0.0.0.0
 
 #### 4. 配置站点
 在浏览器中输入http://127.0.0.1:5000
+
 
 第一次访问会跳转到配置界面，根据指示配置站点信息后就能使用beibq
 
