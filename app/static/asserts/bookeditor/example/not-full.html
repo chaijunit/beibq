@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bookeditor非全屏示例</title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../plugins/katex/katex.css">
+    <link rel="stylesheet" href="../plugins/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../bookeditor.css">
+    <style>
+        .editor-container{
+            width: 800px;
+            margin: 40px auto 0 ;
+        }
+    </style>
+
+</head>
+<body>
+<div class="editor-container">
+    <div id="editor-wraper" class="editor-wraper">
+    </div>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.js"></script>
+<script src="../plugins/katex/katex.js"></script>
+<script src="../plugins/prettify.min.js"></script>
+<script src="../plugins/codemirror/lib/codemirror.js"></script>
+<script src="../plugins/codemirror/addon/mode/overlay.js"></script>
+<script src="../plugins/codemirror/mode/markdown/markdown.js"></script>
+<script src="../plugins/codemirror/mode/gfm/gfm.js"></script>
+<script src="../plugins/marked/marked.js"></script>
+<script src="../plugins/mousetrap/mousetrap.js"></script>
+<script src="../bookeditor.js"></script>
+<script>
+
+function new_editor(markdown){
+    var options = {
+        wraperId: "editor-wraper",
+        full: false,
+        watch: false,
+        markdown: markdown,
+        editorWidth: "0",
+    };
+    editor = bookeditor(options);
+}
+
+new_editor("# Bookedit\n 非全屏示例 ");
+
+</script>
+
+
+</body>
+</html>
