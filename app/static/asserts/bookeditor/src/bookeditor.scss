@@ -1,0 +1,469 @@
+
+/* codemirror style */
+.CodeMirror{
+    font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+    padding-bottom: 40px;
+    border-left: 5px solid #eee;
+    line-height: 1.6;
+    color: #333;
+    font-size: 16px;
+ 
+    pre{
+        padding: 0 10px;
+    }
+
+    .cm-header{
+        color: inherit;
+    }
+    .cm-formatting{
+        color: #bbb;
+    }
+    .cm-variable-2{
+        color: #0777e6;
+    }
+    .cm-formatting-list{
+        color: #8ebce8;
+    }
+    // 引用标记
+    .cm-formatting-quote{
+        color: #75cc75;
+    }
+    .cm-comment{
+        color: #c7254e;
+    }
+    .cm-formatting-code, .cm-formatting-code-block{
+        font-size: inherit;
+        padding: 0;
+        color: #af6b7c;
+    }
+
+}
+
+.CodeMirror-scroll, .CodeMirror-sizer, .CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber{
+    background:#fff;
+}
+
+.CodeMirror-gutters{border:none;}
+
+.cm-header-1{
+    padding: 15px 0;
+    font-size: 30px;
+}
+.cm-header-2{
+    padding: 13px 0;
+    font-size: 26px
+}
+
+.cm-header-3{
+    padding: 11px 0;
+    font-size: 22px;
+}
+
+.cm-header-4{
+    padding: 9px 0;
+    font-size: 18px;
+}
+
+.cm-header-5{
+    padding: 7px 0;
+    font-size: 16px;
+}
+.cm-header-6{
+    padding: 7px 0;
+    font-size: 16px;
+    color: #777;
+}
+
+
+.form-control{
+    border-radius: 2px;
+    &:focus{
+        border-color: #1B95E0;
+        -webkit-box-shadow: none;
+        box-shadow:none;
+    }
+    &.input-error{
+        &:focus{
+            border-color: #F44336;
+        }
+    }
+}
+
+
+.book-wraper{
+    height: 100%;
+    position: relative;
+    background: #f9f9f9;
+    &.book-full-wraper{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1041;
+    }
+}
+
+.book-notfull-wraper{
+    border: 1px solid #e8e8e8;
+    .book-tool-btn{
+        border: none;
+    }
+    .book-codemirror{
+        padding: 20px;
+    }
+    .book-preview{
+        padding: 20px;
+    }
+}
+
+.book-editor{
+    left: 0;
+}
+
+.book-editor, .book-preview{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.book-preview{
+    padding: 40px 10px;
+    border-left: 1px solid #eee;
+    z-index: 10;
+    right: 0;
+}
+
+.book-codemirror{
+    padding: 40px 20px;
+    height:100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.book-tool-group{
+    display:inline-block; 
+    padding:0 3px;
+}
+
+.book-tool-btn{
+    color: inherit;
+    background: none;
+    padding: 3px 8px;
+    border:1px solid #e2dfdf;
+    margin-left: -1px;
+    font-size:15px;
+    outline: none !important;
+    border-radius: 0;
+    &.disabled{
+        color:#aaa;
+        &:hover, &:focus{
+            background:none;
+            box-shadow: none;
+        }
+    }
+    &:hover{
+        background: #eee;
+    }
+}
+
+.book-scrollbar{
+    &::-webkit-scrollbar {
+        height: 10px;
+        width: 7px;
+        background: transparent;
+    }   
+    &::-webkit-scrollbar:hover {
+        background: rgba(128,128,128,0.1);
+    }   
+    &::-webkit-scrollbar-thumb{
+        background: rgba(0,0,0,0.3);
+        -webkit-border-radius: 6px;
+    }   
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0,0,0,0.6);
+    }   
+    &::-webkit-scrollbar-corner {
+        background: #000;
+    }   
+}
+
+
+.book-modal{ 
+    .modal-content{
+        border-radius: 2px;
+    }
+    .form-group{
+        font-size:15px;
+        &:before, &:after{
+            display: table;
+            content: " ";
+            clear: both;
+        }
+        a{
+            >label{
+                padding: 0;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+        }
+        .fa{
+            font-size: 19px;
+            color: #999;
+        }
+    }
+
+    label{
+        font-weight: normal;
+        color:#444;
+        padding: 6px;
+        margin: 0 0 2px;
+    }
+
+    input[type="text"]{
+        color:#333;
+        padding:8px;
+        display:inline-block;
+        outline:none;
+        height:33px;
+    }
+
+    h3{
+        font-size:18px;
+        font-weight:normal;
+        margin:0 0 15px;
+    }
+    .center-text{
+        text-align: center;
+    }
+    .new-dialog{
+        .title{
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        .form-control{
+            width: 100%;
+        }
+        .catalog-type{
+            text-align: center;
+            font-size: 15px;
+            color: #333;
+            width: 50%;
+            float: left;
+            cursor: pointer;
+        }
+    }
+}
+
+.book-dialog{
+    padding:15px;
+    position:relative;
+
+    &.delete-dialog{
+        .center-text{
+            padding: 20px 0;
+        }
+    }
+}
+ 
+.watched{
+    background: #ccc !important;
+}
+
+.editor-btn{
+    display: inline-block;
+    color: #555;
+    min-width: 90px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 2px;
+    height: 32px;
+    font-size: 14px;
+    outline: none;
+    margin-right: 5px;
+    &:hover{
+        background-color: #eee;
+    }
+    &.danger{
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+        &:hover{
+            background-color: #c9302c;
+            border-color: #ac2925;
+        }
+    }
+    &.rename{
+        height: 34px;
+    }
+}
+
+.book-toolbar{
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.book-main{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.book-editor-wraper{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    &.book-status-wraper{
+        .book-editor-area{
+            top: 30px;
+        }
+    }
+}
+
+.book-editor-status{
+    padding: 5px 10px;
+    background: #fff;
+    position: relative;
+    border-top: 1px solid #eeeeee;
+    z-index: 10;
+    height: 30px;
+    color: #9a9a9a;
+}
+
+.book-editor-area{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-top: 1px solid #eee;
+}
+
+.modal-backdrop.in{
+    opacity: .2;
+}
+
+/* catalog style */
+.book-catalog-wraper{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background: #fff;
+    border-top: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.book-catalog-head{
+    background: #f8f8f8;
+    position: relative;
+    padding: 4px 10px;
+    color: #333;
+    border-bottom: 1px solid #eeeeee;
+}
+.book-catalog-body{
+    position: absolute;
+    left: 0;
+    right: -20px;
+    bottom: 0;
+    top: 35px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .list-group{
+        width: 220px;
+    }
+    .list-group-item{
+        padding: 3px 5px;
+        border-radius: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 0;
+        &.node-checked{
+            color: #1B95E0;
+        }
+        &:hover{
+            .menu{
+                display: inline-block;
+            }
+        }
+        &.node-selected{
+            .menu{
+                color: inherit;
+            }
+        }
+        .catalog-link{
+            &:hover, &:focus, &:active{
+                text-decoration: none;
+            }
+        }
+    }
+    .sortable-ghost{
+        padding: 0;
+        border: 1px solid #9a9a9a;
+        height: 0;
+    }
+    .menu{
+        position:absolute;
+        right: 10px;
+        color: #9a9a9a;
+        font-size:13px;
+        display: none;
+        padding: 0 2px;
+        outline: none;
+        .menu-icon{
+            color: inherit;
+        }
+    }
+
+    .book-dropdown{
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 1000;
+        >.dropdown-menu{
+            min-width: 100px;
+        }
+    }
+
+
+}
+
+.book-catalog-footer{
+    text-align: center;
+    margin-bottom: 80px;
+    width: 220px;
+}
+
+.book-catalog-main{
+    .book-editor-wraper{
+        left: 220px;
+    }
+}
+
+.book-dropdown{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    .dropdown-menu{
+        min-width: 100px;
+    }
+}
+
+@import 'html.scss';
+
+

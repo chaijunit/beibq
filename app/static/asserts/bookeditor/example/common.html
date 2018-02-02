@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bookeditor普通示例</title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../plugins/katex/katex.css">
+    <link rel="stylesheet" href="../plugins/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../bookeditor.css">
+</head>
+<body>
+
+<div id="editor-wraper" class="editor-wraper">
+
+</div>
+
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.js"></script>
+<script src="../plugins/katex/katex.js"></script>
+<script src="../plugins/prettify.min.js"></script>
+<script src="../plugins/codemirror/lib/codemirror.js"></script>
+<script src="../plugins/codemirror/addon/mode/overlay.js"></script>
+<script src="../plugins/codemirror/mode/markdown/markdown.js"></script>
+<script src="../plugins/codemirror/mode/gfm/gfm.js"></script>
+<script src="../plugins/marked/marked.js"></script>
+<script src="../plugins/mousetrap/mousetrap.js"></script>
+<script src="../bookeditor.js"></script>
+
+<script>
+function new_editor(markdown){
+    var options = {
+        wraperId: "editor-wraper",
+        full: true,
+        markdown: markdown
+    };
+    editor = bookeditor(options);
+}
+
+new_editor("# Bookedit\n 普通示例 ");
+
+</script>
+
+
+</body>
+</html>

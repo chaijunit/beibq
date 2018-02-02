@@ -1,0 +1,190 @@
+
+.book-html{
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  font-size: 14px;
+  line-height: 2;
+  padding-bottom: 10px; 
+  word-wrap: break-word;
+}
+
+.book-html>:first-child{
+    margin-top: 0!important;
+}
+.book-html>:last-child{
+margin-bottom: 0!important;
+}
+
+// 列表
+.book-html ul, 
+.book-html ol{
+    padding:0;
+    margin:0 0 20px 25px;
+}
+// 无序列表
+.book-html ul>li{
+    list-style-type: disc;
+}
+.book-html ol>li{
+    list-style-type: decimal;
+}
+
+// 表格
+.book-html .table-bordered>thead>tr>td, .book-html .table-bordered>thead>tr>th{
+    border-bottom-width: 1px;
+}
+
+.book-html img{
+    max-width: 100%;
+}
+
+.book-html td,
+.book-html th {
+    padding: 0;
+}
+
+.book-html a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.book-html a:hover,
+.book-html a:active {
+  text-decoration: underline;
+}
+
+.book-html hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.book-html hr:before {
+  display: table;
+  content: "";
+}
+
+.book-html hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.book-html h1,
+.book-html h2,
+.book-html h3,
+.book-html h4,
+.book-html h5,
+.book-html h6{
+  position: relative;
+  font-weight: bold;
+}
+
+.book-html h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 32px 0 20px;
+}
+
+.book-html h2 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 28px 0 16px;
+}
+
+.book-html h3 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 24px 0 12px;
+}
+
+.book-html h4 {
+    font-size: 16px;
+    line-height: 1;
+    margin: 20px 0 10px;
+}
+
+.book-html h5 {
+    font-size: 14px;
+    line-height: 1;
+    margin: 18px 0 8px;
+}
+
+.book-html h6 {
+    font-size: 14px;
+    line-height: 1;
+    margin: 18px 0 8px;
+    color: #777;
+}
+
+.book-html blockquote {
+  border-left: 8px solid #eee;
+}
+
+.book-html dd {
+  margin-left: 0;
+}
+
+// 代码块
+
+/* Pretty printing styles. Used with prettify.js. */
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+pre.prettyprint{
+    font-size:inherit;
+    line-height: 1.6;
+    color: inherit;
+    border: 0;
+}
+
+@media screen {
+  .str { color: #080 }  /* string content */
+  .kwd { color: #008 }  /* a keyword */
+  .com { color: #800 }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #066 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }  /* a markup tag name */
+  .atn { color: #606 }  /* a markup attribute name */
+  .atv { color: #080 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: rgba(102, 128, 153, 0.4) } /* IE indents via margin-left */
+ol.linenums { margin-left: 35px;}
+ol.linenums > li { padding-left: 15px;}
+pre.prettyprint {
+    display: block;
+    background-color: rgba(102, 128, 153, 0.05);
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1) inset, 45px 0 0 rgba(102, 128, 153, 0.05) inset, 0 1px 0 rgba(102, 128, 153, 0.05);
+    padding: 9.5px;
+    word-break: break-word;
+}
+
+/* li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none } */
+
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 { }
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
