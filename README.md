@@ -2,20 +2,33 @@
 
 beibq是基于flask开发的开源书籍博客。
 
-beibq的特点:
+因为很多博客系统都是以文章的形式为主；如果记录的文章变多了，还需要进行分类，而且查找以前写过的某篇文章会比较麻烦。
 
-- 极简界面，直观、简单、易用
-- 高效、便捷的在线书籍编辑器，支持Markdown标记语言
-- 响应式设计，自适应各种平台界面
+beibq是用写书的方式来写博客，因为书籍本身就具有分类功能，就算记录的内容变多了也不觉得乱，而且在阅读时通过点击书籍目录很方便的切换到其他章节。
 
-beibq的编辑器因为是用纯js实现，单独把它开源出来：[bookeditor](https://github.com/chaijunit/bookeditor)
+![](http://uploadimg.markbj.com/static/resource/image/book/f66e396e077511e8a4ac00163e13356e.png)
 
+#### 关于编辑器
 
-#### 1. 编辑器
-![编辑器](http://uploadimg.markbj.com/static/resource/image/book/eaa4d28c077511e8a4ac00163e13356e.png)
+![](http://uploadimg.markbj.com/static/resource/image/book/eaa4d28c077511e8a4ac00163e13356e.png)
 
-#### 2. 书籍列表
-![我的书籍](http://uploadimg.markbj.com/static/resource/image/book/f66e396e077511e8a4ac00163e13356e.png)
+beibq的编辑器支持Markdown，Markdown是一个标记语言，只需要几个简单的标记符号就能转化成丰富的HTML格式，特别适合写博客。关于Markdown的具体介绍：[Markdown 语法说明](https://www.appinn.com/markdown/)
+
+beibq的编辑器界面简洁、操作简单，能够通过工具栏或快捷键方式输入Markdown标记符号，有效的提高写作效率；编辑器的目录区支持章节拖拉，可以调整章节顺序。
+
+编辑器例子：[在线写书](https://www.beibq.cn/bookeditor/book)
+
+beibq的编辑器是纯js实现，我单独将它开源出来：[bookeditor](https://github.com/chaijunit/bookeditor)
+
+#### 界面
+
+beibq的界面简洁、美观、易用。阅读博客时，就像看书一样，界面包含书籍目录；这样只要点击目录的某个章节就能很方便切换到其他章节。
+
+为了提高切换章节效率，当点击目录中某个章节，通过ajax异步请求章节内容，这样可以不仅提高页面刷新速度而且具有很好的阅读体验；
+
+其实使用ajax异步请求章节会出现一个问题，当网络延迟高，用户短时间内点击多个章节，会导致页面显示混乱；为了解决这个问题，我设计一个队列，将用户点击章节时将该事件缓存到队列中，如果短时间内接收多个点击事件，我其实只请求队列中最后的一个事件。
+
+beibq还可以自动适配移动端界面，用户可以在移动设备上阅读。
 
 ## 安装使用
 
