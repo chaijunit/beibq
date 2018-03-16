@@ -22,8 +22,6 @@ beibq的编辑器界面简洁、操作简单，能够通过工具栏或快捷键
 
 编辑器例子：[在线写书](https://www.beibq.cn/bookeditor/book)
 
-beibq的编辑器是纯js实现，我单独将它开源出来：[bookeditor](https://github.com/chaijunit/bookeditor)
-
 写好书籍后点击发布，就能在首页上看到最新书籍动态
 ![](https://github.com/chaijunit/beibq/blob/master/doc/image/home.png)
 
