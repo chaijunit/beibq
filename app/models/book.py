@@ -295,7 +295,8 @@ class BookCatalog(db.Model):
                     BookCatalog.id,
                     BookCatalog.parent_id,
                     BookCatalog.is_dir,
-                    BookCatalog.pos)\
+                    BookCatalog.pos,
+                    BookCatalog.book_id)\
                 .filter_by(id=catalog.parent_id).first()
             return BookCatalog.next(catalog, False)
         else:
