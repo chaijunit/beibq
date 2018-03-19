@@ -268,7 +268,7 @@ class BookCatalog(db.Model):
                 BookCatalog.parent_id==catalog.parent_id))\
             .order_by(BookCatalog.pos.desc()).first()
         if prev_catalog and prev_catalog.is_dir:
-            child = prev_catalog.last_child()
+            child = BookCatalog.last_child(prev_catalog)
             if child:
                 return child
         if prev_catalog or not catalog.parent_id:
@@ -314,10 +314,11 @@ class BookCatalog(db.Model):
             .filter_by(parent_id=catalog.book_id)\
             .order_by(BookCatalog.pos).first()
 
-    def last_child(self):
+    @staticmethod
+    def last_child(catalog):
         return BookCatalog.query.with_entities(BookCatalog.id,
                 BookCatalog.parent_id, BookCatalog.title, BookCatalog.id)\
-            .filter_by(parent_id=self.id)\
+            .filter_by(parent_id=catalog.id)\
             .order_by(BookCatalog.pos.desc()).first()
 
     def set_abstract(self):
