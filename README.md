@@ -6,6 +6,10 @@
 
 github地址：https://github.com/chaijunit/beibq
 
+demo地址：http://demo.beibq.cn
+用户名：admin
+密码：123456
+
 
 因为很多博客系统都是以文章的形式为主；如果记录的文章变多了，还需要进行分类，而且查找以前写过的某篇文章会比较麻烦。
 
