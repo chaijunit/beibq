@@ -1,5 +1,5 @@
 #coding: utf-8
-from flask import current_app, render_template, request, redirect, url_for
+from flask import current_app, render_template, request, redirect, url_for, abort
 from flask_login import current_user
 from app.models.book import *
 from app.web import web
@@ -29,6 +29,8 @@ def reader(id, catalog_id=None):
             return redirect(url_for("web.reader", id=book.id))
     else:
         catalog = BookCatalog.reader(book.id)
+    if not catalog:
+        return render_template("web/reader.html", book=book)
     prev = BookCatalog.prev(catalog)
     next = BookCatalog.next(catalog)
     catalogs = book.tree_catalogs()
