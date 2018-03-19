@@ -52,7 +52,6 @@ def install_step1(form):
         create_tables(db)
         from app.models.site import SiteMeta
         from app.models.user import User
-        print 'SiteMeta', SiteMeta.__tablename__
         metas = {
             "name": form.name.data,
             "description": "这是一个书籍站点",
@@ -62,7 +61,7 @@ def install_step1(form):
         User.add(form.username.data, form.password.data)
         current_app.start = True
         set_site(current_app)
-        return render_template("admin/start/install-step1.html")
+        return render_template("admin/start/install-step1.html", username=form.username.data)
     return render_template("admin/start/install.html", form=form)
 
 
