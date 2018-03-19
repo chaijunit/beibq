@@ -280,7 +280,7 @@ class BookCatalog(db.Model):
     def next(catalog, is_first=True):
         if catalog:
             if catalog.is_dir and is_first:
-                next_catalog = self.first_child(catalog)
+                next_catalog = BookCatalog.first_child(catalog)
                 if next_catalog:
                     return next_catalog
             next_catalog = BookCatalog.query.with_entities(BookCatalog.id, 
@@ -307,10 +307,11 @@ class BookCatalog(db.Model):
                 .order_by(BookCatalog.pos).first()
         return next_catalog
 
-    def first_child(self):
+    @staticmethod
+    def first_child(catalog):
         return BookCatalog.query.with_entities(BookCatalog.id,
                 BookCatalog.parent_id, BookCatalog.title, BookCatalog.is_dir)\
-            .filter_by(parent_id=self.id)\
+            .filter_by(parent_id=catalog.book_id)\
             .order_by(BookCatalog.pos).first()
 
     def last_child(self):
