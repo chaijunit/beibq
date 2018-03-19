@@ -1,10 +1,16 @@
 #coding: utf-8
-import os, uuid
+import os
+import uuid
 from readability import Document
 from app.includes.url import open_url, full_url, download_file
 from html2text import HTML2Text
 from flask import current_app
 from bs4 import BeautifulSoup
+
+try:
+    unicode        # Python 2
+except NameError:
+    unicode = str  # Python 3
 
 
 def get_url_html(html, url):
@@ -49,4 +55,3 @@ def html2markdown(html, url, download, path):
         h = HTML2Text(bodywidth = 0)
     md = h.handle(html)
     return md
-

@@ -17,6 +17,11 @@ import re
 import urllib
 import webapp2
 
+try:
+    unicode        # Python 2
+except NameError:
+    unicode = str  # Python 3
+
 DEBUG=os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
 WEBSITE = 'https://blueimp.github.io/jQuery-File-Upload/'
 MIN_FILE_SIZE = 1  # bytes

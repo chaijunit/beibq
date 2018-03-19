@@ -1,5 +1,11 @@
 #coding: utf-8
 
+try:
+    unicode        # Python 2
+except NameError:
+    unicode = str  # Python 3
+
+
 def strdecode(text):
     if not isinstance(text, unicode):
         try:
@@ -8,5 +14,3 @@ def strdecode(text):
             text = text.decode('gbk', 'ignore')
         return text
     return text
-
-

@@ -1,10 +1,12 @@
 #coding:utf-8
+from flask import abort
 from flask_sqlalchemy import Pagination
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 db = SQLAlchemy()
 login_manager = LoginManager()
+
 
 def paginate(query, page, per_page=20, error_out=True):
     if error_out and page < 1:
@@ -17,6 +19,3 @@ def paginate(query, page, per_page=20, error_out=True):
     else:
         total = query.order_by(None).count()
     return Pagination(query, page, per_page, total, items)
-
-
-

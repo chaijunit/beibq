@@ -1,4 +1,5 @@
 #coding:utf-8
+from __future__ import absolute_import
 from flask import Flask, redirect, url_for, request
 from datetime import datetime
 from flask_bootstrap import Bootstrap
@@ -55,7 +56,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(DefaultConfig)
 
-    from models.model import db, login_manager
+    from .models.model import db, login_manager
 
     bootstrap.init_app(app)
     db.init_app(app)

@@ -1,4 +1,5 @@
 #coding: utf-8
+from __future__ import print_function
 from datetime import datetime
 from app.models.model import *
 from flask_login import UserMixin
@@ -58,7 +59,7 @@ class User(UserMixin, db.Model):
         self.nickname = nickname
 
     def change_password(self, password):
-        print 'password', password
+        print('password', password)
         self.password = generate_password_hash(password)
 
     def verify_password(self, password):
