@@ -76,7 +76,7 @@ class Book(db.Model):
     def setting(self, name, brief, access):
         self.name = name
         self.brief = brief
-        self.access = 0 if not access else 1
+        self.access = access
 
     def _deep_catalogs(self, catalogs, catalog_dict):
         for catalog in catalogs:
