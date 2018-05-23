@@ -58,7 +58,6 @@ class User(UserMixin, db.Model):
         self.nickname = nickname
 
     def change_password(self, password):
-        print 'password', password
         self.password = generate_password_hash(password)
 
     def verify_password(self, password):

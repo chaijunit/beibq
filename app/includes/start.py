@@ -1,5 +1,5 @@
 #coding: utf-8
-import os
+import os, exceptions
 from flask import current_app, render_template
 from sqlalchemy import *
 
@@ -44,6 +44,8 @@ def connect_mysql(url):
         engine = create_engine(url)
         connection = engine.connect()
     except Exception as e:
+        if isinstance(e, exceptions.ImportError):
+            raise(e)
         code, _ = e.orig
         return code
     return 0
