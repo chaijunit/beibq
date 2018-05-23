@@ -17,7 +17,7 @@ itsdangerous==0.24
 Jinja2==2.10
 lxml==4.1.1
 MarkupSafe==1.0
-MySQL-python==1.2.5
+PyMySQL==0.8.1
 Pillow==5.0.0
 readability-lxml==0.6.2
 requests==2.18.4

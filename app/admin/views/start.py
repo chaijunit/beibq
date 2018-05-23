@@ -14,7 +14,7 @@ def setup_step2():
         username = form.username.data.encode("utf8")
         password = form.password.data.encode("utf8")
         db_name = form.db.data.encode("utf8")
-        url = 'mysql+mysqldb://{0}:{1}@{2}/{3}?charset=utf8'.format(username,
+        url = 'mysql+pymysql://{0}:{1}@{2}/{3}?charset=utf8'.format(username,
             password, host, db_name)
         code = connect_mysql(url)
         if not code:
