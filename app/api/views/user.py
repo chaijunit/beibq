@@ -17,8 +17,6 @@ def change_avatar(id = None, binary = None, **params):
     avatar = file.change_avatar(binary, user.avatar)
     user.avatar = avatar
     src = '/'.join(['/static', current_app.config["AVATAR_PATH"], avatar])
-    import time
-    time.sleep(4)
     return message("success", {"src": src})
 
 
