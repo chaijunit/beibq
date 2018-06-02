@@ -37,7 +37,7 @@
                 {%if loop.first%}
                 <div class="alert {%if error%}alert-danger{%else%}alert-success{%endif%} alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{msg.decode("utf-8")}}
+                        {{msg}}
                     </div>
                 {%endif%}
                 {%endfor%}
@@ -66,7 +66,7 @@
                         <div class="col-sm-10">
                             <input class="form-control {%if form.name.errors%}input-error{%endif%}" type="text" name="name" value="{%if form.name.data%}{{form.name.data}}{%else%}{{book.name}}{%endif%}">
                             {%for error in form.name.errors%}
-                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            <div class="input-error-info">{{error}}</div>
                             {%endfor%}
                         </div>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="col-sm-10">
                             <textarea class="form-control {%if form.brief.errors%}input-error{%endif%}"  name="brief" cols="5" rows="5">{%if form.brief.data%}{{form.brief.data}}{%else%}{{book.brief}}{%endif%}</textarea>
                             {%for error in form.brief.errors%}
-                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            <div class="input-error-info">{{error}}</div>
                             {%endfor%}
                         </div>
                         </div>
@@ -100,7 +100,7 @@
                                 <span class="gray-white">(仅自己能看到)</span>
                             </label>
                             {%for error in form.access.errors%}
-                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            <div class="input-error-info">{{error}}</div>
                             {%endfor%}
                         </div>
                         </div>

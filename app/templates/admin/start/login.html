@@ -30,7 +30,7 @@
         {%if loop.first%}
         <div class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            {{msg.decode("utf-8")}}
+            {{msg}}
         </div>
         {%endif%}
         {%endfor%}
@@ -41,7 +41,7 @@
                 <input name="username" class="form-control" type="text" placeholder="用户名">
                 {%if form.username.errors%}
                 {%for error in form.username.errors%}
-                <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                <div class="input-error-info">{{error}}</div>
                 {%endfor%}
                 {%endif%}
             </div>
@@ -49,7 +49,7 @@
                 <input name="password" class="form-control" type="password" placeholder="密码" >
                 {%if form.password.errors%}
                 {%for error in form.password.errors%}
-                <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                <div class="input-error-info">{{error}}</div>
                 {%endfor%}
                 {%endif%}
             </div>

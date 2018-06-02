@@ -1,5 +1,5 @@
-#coding: utf-8
-import os, exceptions
+#coding:utf-8
+import os
 from flask import current_app, render_template
 from sqlalchemy import *
 
@@ -44,11 +44,12 @@ def connect_mysql(url):
         engine = create_engine(url)
         connection = engine.connect()
     except Exception as e:
-        if isinstance(e, exceptions.ImportError):
+        if isinstance(e, ImportError):
             raise(e)
-        code, _ = e.orig
-        return code
-    return 0
+        msg = e._message()
+        code, _ = e.orig.args
+        return code, msg
+    return 0, ""
 
 
 def create_tables(db):
@@ -74,12 +75,5 @@ def set_site(app):
     metas = dict([(meta.name, meta.value) for meta in metas])
     app.site = metas
 
-
-def load_site(app):
-    with app.app_context():
-        set_site(app)
-        def site_context_processor():
-            return dict(site=app.site)
-        app.context_processor(site_context_processor)
 
 

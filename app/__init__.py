@@ -8,20 +8,19 @@ from app.config_default import Config as DefaultConfig
 bootstrap = Bootstrap()
 
 def check_start(app, db):
-    from app.includes.start import _exist_config, exist_table, load_site, create_path
+    from app.includes.start import _exist_config, exist_table, create_path, set_site
     create_path(app)
     app.start = False
     if _exist_config(app):
         from app.config import Config
         app.config.from_object(Config)
         if exist_table(app):
-            load_site(app)
             app.start = True
             return
     @app.before_request
     def request_check_start():
         if app.start:
-            return
+            return set_site(app)
         ends = frozenset(["admin.setup", "admin.install", "static"])
         if request.endpoint in ends:
             return
@@ -55,7 +54,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(DefaultConfig)
 
-    from models.model import db, login_manager
+    from app.models.model import db, login_manager
 
     bootstrap.init_app(app)
     db.init_app(app)

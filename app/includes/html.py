@@ -38,7 +38,7 @@ def download_html_image(url, html, path):
             img['src'] = src
         else:
             img['src'] = _src
-    return unicode(soup)
+    return soup
 
 
 def html2markdown(html, url, download, path):

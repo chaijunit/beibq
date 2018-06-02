@@ -45,6 +45,9 @@
         <a class="btn btn-default" href="{{url_for("admin.setup", step=1)}}">返回上一步</a>
         </p>
         {%elif code==3%}
+        {%if msg%}
+        <p>{{msg}}</p>
+        {%endif%}
         <p>无法连接数据库，可能原因：</p>
         <ul>
             <li>填写信息有错</li>

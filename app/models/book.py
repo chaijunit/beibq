@@ -93,7 +93,7 @@ class Book(db.Model):
             "parent_id", "pos", "is_dir", "book_id")).all()
         catalog_dict = {}
         for catalog in catalogs:
-            if not catalog_dict.has_key(catalog.parent_id):
+            if catalog.parent_id not in catalog_dict:
                 catalog_dict[catalog.parent_id] = []
             catalog_dict[catalog.parent_id].append(catalog)
         return self._deep_catalogs(

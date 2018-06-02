@@ -4,7 +4,7 @@ import simplejson as json
 from flask import current_app, url_for, render_template
 from flask_login import current_user
 from app.models.book import *
-from app.includes import diff, file, html as html_module, util
+from app.includes import diff, file, html as html_module
 from . import dispatcher, message
 
 
@@ -179,7 +179,6 @@ def import_html(html = None, url=None, only_main=None,
     html = html_module.get_url_html(html, url)
     if html is None:
         return message("warning", "", "地址无法访问")
-    html = util.strdecode(html)
     html = html if not only_main else html_module.get_main_html(html)
     markdown = html_module.html2markdown(html, url, download, 
             current_app.config["IMAGE_PATH"])

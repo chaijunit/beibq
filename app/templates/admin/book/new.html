@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <input class="form-control {%if form.name.errors%}input-error{%endif%}" name="name" type="text" {%if form.name.data%}value="{{form.name.data}}"{%endif%} autocomplete="off" placeholder="书名">
                         {%for error in form.name.errors%}
-                        <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                        <div class="input-error-info">{{error}}</div>
                         {%endfor%}
                     </div>
                     <div class="form-group">
@@ -52,14 +52,14 @@
                             <label class="book-access" >
                                 <input class="access-radio" type="radio" value="{{form.access.choices[0][0]}}" name="access" {%if form.access.data=="None" or form.access.data==form.access.choices[0][0]%}checked="checked"{%endif%}>
                                 <i class="fa fa-columns access-icon"></i>
-                                {{form.access.choices[0][1].decode("utf-8")}} <span class="gray-white">(任何人都能看到)</span>
+                                {{form.access.choices[0][1]}} <span class="gray-white">(任何人都能看到)</span>
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="book-access" >
                                 <input class="access-radio" type="radio" value="{{form.access.choices[1][0]}}" name="access" {%if form.access.data==form.access.choices[1][0]%}checked="checked"{%endif%}>
                                 <i class="fa fa-lock access-icon warn"></i>
-                                {{form.access.choices[1][1].decode("utf-8")}} <span class="gray-white">(仅自己能看到)</span>
+                                {{form.access.choices[1][1]}} <span class="gray-white">(仅自己能看到)</span>
                             </label>
                         </div>
                     </div>

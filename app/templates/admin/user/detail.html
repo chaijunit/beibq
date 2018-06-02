@@ -37,7 +37,7 @@
                 {%if loop.first%}
                 <div class="alert {%if error%}alert-danger{%else%}alert-success{%endif%} alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{msg.decode("utf-8")}}
+                        {{msg}}
                     </div>
                 {%endif%}
                 {%endfor%}
@@ -76,7 +76,7 @@
                         <div class="col-sm-10">
                             <input class="form-control {%if form.nickname.errors%}input-error{%endif%}" type="text" name="nickname" value="{%if form.nickname.data%}{{form.nickname.data}}{%else%}{{user.nickname}}{%endif%}">
                             {%for error in form.nickname.errors%}
-                            <div class="input-error-info">{{error.decode("utf-8")}}</div>
+                            <div class="input-error-info">{{error}}</div>
                             {%endfor%}
                         </div>
                         </div>

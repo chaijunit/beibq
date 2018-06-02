@@ -19,7 +19,7 @@ class SiteMeta(db.Model):
 
     @staticmethod
     def add(data):
-        for name, value in data.iteritems():
+        for name, value in data.items():
             meta = SiteMeta.query.filter_by(name=name).first()
             if meta is not None:
                 continue
@@ -29,7 +29,7 @@ class SiteMeta(db.Model):
 
     @staticmethod
     def setting(data):
-        for name, value in data.iteritems():
+        for name, value in data.items():
             meta = SiteMeta.query.filter_by(name=name).first()
             if not meta:
                 meta = SiteMeta(name=name, value=value)

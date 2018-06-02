@@ -1,4 +1,4 @@
-#coding: utf-8
+#coding:utf-8
 from flask import current_app, render_template, request, redirect, url_for, flash
 from app.models.model import db
 from flask_login import login_user, logout_user, login_required, current_user
@@ -10,13 +10,13 @@ from app.includes.start import *
 def setup_step2():
     form = ConfigForm()
     if form.validate_on_submit():
-        host= form.host.data.encode("utf8")
-        username = form.username.data.encode("utf8")
-        password = form.password.data.encode("utf8")
-        db_name = form.db.data.encode("utf8")
+        host= form.host.data
+        username = form.username.data
+        password = form.password.data
+        db_name = form.db.data
         url = 'mysql+pymysql://{0}:{1}@{2}/{3}?charset=utf8'.format(username,
             password, host, db_name)
-        code = connect_mysql(url)
+        code, msg = connect_mysql(url)
         if not code:
             create_config(username, password, host, db_name)
             from app.config import Config
@@ -26,6 +26,8 @@ def setup_step2():
             return render_template("admin/start/setup-error.html", code=1)
         elif code == 1049:
             return render_template("admin/start/setup-error.html", code=2)
+        else:
+            return render_template("admin/start/setup-error.html", code=3, msg=msg)
     return render_template("admin/start/setup-error.html", code=3)
 
 
