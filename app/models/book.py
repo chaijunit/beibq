@@ -38,7 +38,7 @@ class Book(db.Model):
 
     @staticmethod
     def add(name, brief, access, user_id):
-        book = Book(name=name, access=access, user_id=user_id)
+        book = Book(name=name, brief=brief, access=access, user_id=user_id)
         db.session.add(book)
         db.session.commit()
         return book
