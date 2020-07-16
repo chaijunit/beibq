@@ -55,7 +55,7 @@
     "babel-loader": "~5.1.4",
     "jest-cli": "^0.8.2",
     "jshint-stylish": "~2.0.0",
-    "lodash": "~3.9.3",
+    "lodash": "~4.17.19",
     "node-libs-browser": "~0.5.2",
     "pica": "^1.0.7",
     "webpack": "~1.9.11",
