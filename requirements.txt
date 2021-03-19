@@ -14,7 +14,7 @@ Flask-WTF==0.14.2
 html2text==2018.1.9
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 lxml==4.1.1
 MarkupSafe==1.0
 PyMySQL==0.8.1
