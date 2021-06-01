@@ -23,7 +23,7 @@ readability-lxml==0.6.2
 requests==2.18.4
 simplejson==3.13.2
 SQLAlchemy==1.2.2
-urllib3==1.22
+urllib3==1.26.5
 visitor==0.1.3
 Werkzeug==0.14.1
 WTForms==2.1
