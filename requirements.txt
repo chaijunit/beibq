@@ -18,7 +18,7 @@ Jinja2==2.10
 lxml==4.1.1
 MarkupSafe==1.0
 PyMySQL==0.8.1
-Pillow==5.0.0
+Pillow==9.0.0
 readability-lxml==0.6.2
 requests==2.18.4
 simplejson==3.13.2
